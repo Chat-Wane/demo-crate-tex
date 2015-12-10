@@ -1,0 +1,92 @@
+\documentclass[conference]{sig-alternate-05-2015}
+
+\usepackage[nocompress]{cite}
+\usepackage{hyperref}
+%% url
+\usepackage{url}
+%% maths
+%%\usepackage[cmex10]{amsmath}
+%%\usepackage{amsfonts}
+%%\usepackage{amssymb}
+%%\usepackage{amsthm}
+%% algorithms
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+%% images
+\usepackage{graphicx}
+%% inparaenum
+\usepackage[defblank]{paralist}
+%% tables
+\usepackage{booktabs}
+\usepackage{multirow}
+%% figures
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,plotmarks,shapes,matrix}
+%% transform eps in pdf crossplateform
+\usepackage{epstopdf}
+\usepackage{epsfig}
+%% hyphenation
+\usepackage{hyphenat}
+\hyphenation{brow-sers brow-ser}
+
+
+\newcommand{\TOFIX}[1]{\textcolor{orange}{#1}}
+\newcommand{\TODO}[1]{\textcolor{red}{#1}}
+
+\usepackage{xspace}
+\newcommand{\SCAMP}[0]{\textsc{Scamp}\xspace}
+\newcommand{\CYCLON}[0]{\textsc{Cyclon}\xspace}
+\newcommand{\SPRAY}[0]{\textsc{Spray}\xspace}
+\newcommand{\LSEQ}[0]{\textsc{LSeq}\xspace}
+\newcommand{\CRATE}[0]{\textsc{Crate}\xspace}
+\newcommand{\PEERSIM}[0]{\textsc{PeerSim}\xspace}
+
+\setlength{\belowcaptionskip}{-10pt} %% reduce spacing below figures
+\setlength{\intextsep}{7pt} %% reduce spacing on top/bottom of algorithms
+
+%paralist
+\renewcommand*\descriptionlabel[1]{%
+\scshape #1}
+\renewcommand\paradescriptionlabel[1]{%
+\scshape #1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Collaborative Editing Without Third Party}
+
+\numberofauthors{3}
+\author{
+\alignauthor
+Brice N{\'e}delec\\
+\affaddr{Universit{\'e} de Nantes, LINA}
+%\affaddr{2 rue de la Houssini{\`e}re}\\
+%\affaddr{Nantes, FRANCE}\\
+\email{brice.nedelec{@}univ-nantes.fr}
+\alignauthor
+Achour Mostefaoui\\
+\affaddr{Universit{\'e} de Nantes, LINA}
+% \affaddr{2 rue de la Houssini{\`e}re}\\
+% \affaddr{Nantes, FRANCE}\\
+\email{achour.mostefaoui{@}univ-nantes.fr}
+}
+\date{}
+
+\maketitle
+\input{input/abstract.tex}
+
+\input{input/introduction.tex}
+\input{input/conclusion.tex}
+
+%% Bibliographie
+\bibliographystyle{abbrv}
+\bibliography{bibliographie}
+\clearpage
+  
+\end{document}
+
