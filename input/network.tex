@@ -1,3 +1,66 @@
 
 \section{Network of browsers}
 \label{sec:network}
+
+\CRATE uses \SPRAY to build a network of browsers thanks to WebRTC. The latter
+is a recent technology that allows establishing browser-to-browser channels of
+communication. Its connection establishement protocol imposes a round-trip of
+messages. Thus, if an editor $e_1$ wants to connect to another editor $e_2$, it
+needs to send a message to $e_2$ and to wait for its reponse. While the first of
+such connection must use a mediator (e.g. mail, dedicated server etc.), once
+established, the network can assume the position of mediator.
+
+Web browsers exist in most of current devices. \TODO{Moar.}
+
+\SPRAY is an adaptive random peer sampling protocol which provides each editor
+with a neigbhorhood table the size of which grows and shrinks following the
+global network size, yet without any global knowledge. More particularly, the
+number of neighbhors at each editor is logarithmic compared to the editing
+session size.
+
+\SPRAY's lifecycle at each editor comprises three steps:
+\begin{enumerate}[(i)]
+\item \textbf{the joining:} the editor wants to join the editing session. It
+  contacts an editor inside the network and waits for its answer to establish
+  the very first WebRTC connection between them. Using this connection, the
+  joining editor asks to its contact editor to operate as mediator to advertise
+  its presence to the contact's neighbors. Each of these neigbhbors connects to
+  the joining peer. Since the number of neighbor is supposed logarithmic, the
+  number of connections in the network grows by $\log(N)+1$ where $\log(N)$ is
+  the natural logarithm of the network size $N$. Following such growth, the
+  number of connections globally is $N.\log(N)$.
+\item \textbf{the shuffling:} each editor regularly initiates a table shuffling
+  with the oldest of its neigbhors. The initiator serves as mediator between
+  half of its neighborhood chosen at random and the oldest neighbor. In
+  response, the oldest neighbor does the same. As a result, they roughly have an
+  identical neighborhood size which tackles the load-balancing problem that may
+  rise from the joining part of the protocol. It is worth noting that the number
+  of connection remains constant. In addition, the references in neighborhood
+  tables are randomly distributed. The network converges in exponential time
+  toward a topology exposing properties similar to those of random graphs
+  (\REF).
+\item \textbf{the leaving:} the editor can leave the network without giving
+  notice, i.e., equivalent to a crash. Nevertheless, its removal from the system
+  must lead to a decrease of $\log(N)+1$ connections while currently it
+  represents $\log(N)$ connections from its neighborhood tables, and $\log(N)$
+  connections from other editors' neighborhood tables pointing to it. The
+  adjusting falls under the responsability of these other editors. For this
+  purpose, they detect the departure of a neighbor when they try to initiate a
+  shuffle with it. Since such detections presumably happen $\log(N)$ times, they
+  all duplicate one of their neigbhors except for one; the probability being
+  processed using their own neigbhorhood table size. 
+\end{enumerate}
+
+Such random peer sampling protocol constitutes the ground of various protocols
+such as topology managements, \TODO{moar} etc. \CRATE uses it to disseminate all
+operations of the replicated sequence to all collaborators in a scalable
+manner. Referred as epidemic disemination, rumor mongering, or gossiping, the
+protocol is a two-step operation:
+\begin{inparaenum}[(i)]
+\item Each operation performed on the local document replica leads to the
+  creation of a message. The latter is sent to all the neigbhorhood provided by
+  \SPRAY.
+\item Each editor receiving such broadcasted message transmits it again to its
+  neigbhorhood. (\TODO{it checks if it already received it})
+\end{inparaenum}
+Thus, messages transitively reach all collaborators very efficiently.
