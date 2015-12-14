@@ -3,12 +3,13 @@
 \label{sec:introduction}
 
 Real-time collaborative editors allow authors to simultaneously write shared
-documents. While being undoubtedly useful, most of current tools available
-belong to the Cloud (\REF). With centralization come privacy and scalability
-issues. To reconcile with the Internet working distributed without central
-authorities, editors start to get rid of such centrality point, which in turns
-solves privacy issues. Still scalability problem remains, and usability formerly
-provided by the Cloud is gone.
+documents~\cite{greenberg1994real}. While being undoubtedly useful, most of
+current tools available belong to the Cloud~\cite{mell2011national}. With
+centralization come privacy and scalability issues. To reconcile with the
+Internet working distributed without central authorities, editors start to get
+rid of such centrality point, which in turns solves privacy issues. Still
+scalability problem remains, and usability formerly provided by the Cloud is
+gone.
 
 \CRATE is a distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
 \textsc{e}ditor providing scalable real-time editing capabilities directly
@@ -17,30 +18,32 @@ access to an editing session as simply as clicking a URL (\emph{Uniform Resource
   Locator}).
 
 To provide availability and responsiveness of documents, \CRATE uses the
-optimistic replication scheme (\REF). Thus, each editor replicates the document
-locally and directly performs operations on it. Changes are spread to all
-editors. When the same set of operations are applied by editors, the replicates
-converge to an equivalent state allowing users to read the same document.  This
-property is called \emph{strong eventual consistency} (\REF). A plethora of
-approaches provide such consistency criteria. \CRATE uses a data structure that
-avoids conflicting operations by design (\REF). It relieves users from the
-burden of solving conflicts at the cost of additional metadata the size of
-which is kept \TODO{reasonable} thanks to \LSEQ. 
+optimistic replication scheme~\cite{saito2005optimistic}. Thus, each editor
+replicates the document locally and directly performs operations on it. Changes
+are spread to all editors. When the same set of operations are applied by
+editors, the replicates converge to an equivalent state allowing users to read
+the same document.  This property is called \emph{strong eventual
+  consistency}~\cite{bailis2013eventual}. A plethora of approaches provide such
+consistency criteria. \CRATE uses a data structure that avoids conflicting
+operations by design~\cite{shapiro2011comprehensive}. It relieves users from the
+burden of solving conflicts at the cost of additional metadata the size of which
+is kept \TODO{reasonable} thanks to \LSEQ~\cite{nedelec2013lseq}.
 
 To spread changes made on documents to the editing session, \CRATE firstly
 builds a network of browsers which is secondly used to disseminate messages in a
-scalable manner (\REF). Such feature is only allowed by the recent introduction
-of WebRTC\footnote{\url{http://www.webrtc.org}} as a browser-to-browser
-communication protocol. To build the network of browsers, \CRATE uses \SPRAY: a
-random peer sampling protocol (\REF) which provides each editor with a
+scalable manner~\cite{birman1999bimodal}. Such feature is only allowed by the
+recent introduction of WebRTC\footnote{\url{http://www.webrtc.org}} as a
+browser-to-browser communication protocol. To build the network of browsers,
+\CRATE uses \SPRAY~\cite{nedelec2015spray}: a random peer sampling
+protocol~\cite{jelasity2007gossip} which provides each editor with a
 neighborhood table to communicate with. The size of the latter adapts to the
 editing session size automatically and without any global knowledge. The
-dissemination protocol built on top of it directly beneficits from this
+dissemination protocol built on top of it directly benefits from this
 property. Thus, traffic follows the needs of the editing session.
 
 This demo paper
 \begin{inparaenum}[(i)]
-\item describes the aforementionned components that build \CRATE;
+\item describes the aforementioned components that build \CRATE;
 \item describes the setup of our live demo where people would get the
   opportunity to join an editing session and start the redaction of a document
   together. We hope to retrieve a meaningful document along with interesting
@@ -49,9 +52,13 @@ This demo paper
 
 The rest of this paper is organized as follow: Section~\ref{sec:architecture}
 details the overall architecture of \CRATE along with its basic
-functionning. Section~\ref{sec:structure} describes the distributed data
+functioning. Section~\ref{sec:structure} describes the distributed data
 structure that represents the document. Section~\ref{sec:network} details the
 network building operation. Section~\ref{sec:live} states the live experiment
 setup we propose. Section~\ref{sec:conclusion} concludes.
 
 
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../paper"
+%%% End:

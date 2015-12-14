@@ -2,10 +2,12 @@
 \section{Architecture}
 \label{sec:architecture}
 
-The collaborative editor \CRATE comprises four layers:
+The distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
+\textsc{e}ditor \CRATE\footnote{\url{https://github.com/Chat-Wane/CRATE}}
+comprises four layers:
 \begin{inparaenum}[(i)]
 \item the graphical user interface that renders the document to the users
-  (cf. Figure~\TODO{ref});
+  (cf. Figure~\ref{img:screenshot});
 \item the sequence structure layer that represents the local replica of the
   document (cf. §\ref{sec:structure});
 \item the causality layer that tracks semantic causality between operations,
@@ -14,3 +16,13 @@ The collaborative editor \CRATE comprises four layers:
   disseminate the operations performed on documents (cf. §\ref{sec:network});
 \end{inparaenum}
 
+\begin{figure*}
+  \includegraphics[width=\textwidth]{./img/screenshot.png}
+  \caption{\label{img:screenshot} \CRATE screenshot}
+\end{figure*}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../paper"
+%%% End:
