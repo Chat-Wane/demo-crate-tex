@@ -1,3 +1,47 @@
 
-\section{Replicated Structure}
+\section{Replicated document}
 \label{sec:structure}
+
+To provide eventually consistent replicas, \CRATE uses a conflict-free
+replicated data type for sequences. Such sequence type avoids the difficult and
+error-prone task of solving conflicts by the mean of commutative
+operations. Thus, the sequence type provides two basic operations: the insertion
+and removal of an element. If two users perform concurrently some operations at
+an identical position in the sequence, the latter will still converge to an
+equivalent state.
+
+Commutativity comes at the price of additional metadata attached to each
+element of the sequence. These metadata referred to as identifier are unique,
+immutable, and of variable size at generation. When a character is inserted, the
+sequence type generates an identifier which is a list
+$[\ell_1.\ell_2\ldots \ell_k]$ where $k$ is the identifier depth and Element
+$\ell_i$ comprises a path $p_i$, a globally unique site identifier $s_i$, a
+monotonic local counter $c_i$.
+
+A lexicographic total order amongst these identifiers allows retrieving the
+sequence:
+\begin{align*}
+  \ell_i < \ell_j \iff & (p_i < p_j) \vee \\
+                       & ((p_i = p_j) \wedge (s_i<s_j)) \vee \\
+                       & ((p_i = p_j) \wedge (s_i = s_j) \wedge (c_i < c_j)) \\
+  \ell_i = \ell_j \iff & \neg (\ell_i < \ell_j) \wedge \neg (\ell_j < \ell_i) \\
+  i_i < i_j \iff & \exists (m > 0)(\forall n < m) (\ell^i_n = \ell^j_n) \wedge (\ell^i_m < \ell^j_m) \\
+  i_i = i_j \iff & (\forall m) \ell^i_n = \ell^j_n
+\end{align*}
+
+The first two equivalences define an ordering between elements of the list
+composing the identifiers. The last two equivalences use these to define a
+global total order amongst identifiers, hence, ordering characters of the
+document. While the third equivalence is mostly used to locate the proper
+inserting position, the fourth equivalence is necessary for removals.  Paths of
+identifiers constitute the most discriminant part of identifiers, hence the most
+important part. The rest of this section focuses on these.
+
+\CRATE uses \LSEQ to generate the paths of identifiers. The paths are series of
+integers $[p_1.p_2\ldots p_k]$ where each path is chosen among a set twice as
+large as its preceiding path. For instance, if $p_1$ is chosen among
+$\{0..2^8\}$ then $p_2$ is chosen among $\{0..2^9\}$ etc.  When the document
+grows, the depth of identifiers is expected to grow. Therefore, increasing the
+size of sets over depths decreases the growth in depth. In turns, \LSEQ
+allocates identifiers sub-linearly upper-bounded compared to the number of
+insertions in the sequence.
