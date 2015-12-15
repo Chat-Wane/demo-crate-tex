@@ -1,0 +1,29 @@
+
+\begin{tikzpicture}[scale=1.1]
+  
+  \newcommand\X{30pt};
+  \newcommand\Y{35pt};
+
+  \draw[fill=white](0*\X, 0*\Y) node[align=center]{Mediator\\File server} +(-25pt,-10pt) rectangle +(25pt,10pt);
+  \draw[fill=white](-2*\X, -2*\Y) node[align=center]{Our replica\\Measuring tools} +(-30pt,-10pt) rectangle +(30pt,10pt);
+
+  \draw[fill=white](2*\X, -0*\Y)node{$s_1$} +(-5pt,-5pt) rectangle +(5pt,5pt);
+  \draw[fill=white](4*\X, -0.5*\Y)node{$s_2$}  +(-5pt,-5pt) rectangle +(5pt,5pt);
+  \draw[fill=white](3*\X, -1*\Y)node{$s_3$}  +(-5pt,-5pt) rectangle +(5pt,5pt);
+  \draw[fill=white](2*\X, -2*\Y)node{$s_4$}  +(-5pt,-5pt) rectangle +(5pt,5pt);
+  \draw[fill=white](4*\X, -2*\Y)node{$s_5$}  +(-5pt,-5pt) rectangle +(5pt,5pt);
+  \draw[fill=white](3*\X, -2*\Y)node{$s_6$}  +(-5pt,-5pt) rectangle +(5pt,5pt);
+  \draw[fill=white](1*\X, -2*\Y)node{$s_7$}  +(-5pt,-5pt) rectangle +(5pt,5pt);
+
+
+  \draw[<->](0*\X, -10+0*\Y) -- (-2*\X, -2*\Y+10);
+  \draw[<->, densely dashed] (0*\X+25,0*\Y) -- (2*\X-5, 0*\Y);
+  
+  \draw[<->, densely dashed] (0*\X+25,0*\Y-5) -- (4*\X-5, -0.5*\Y);
+  \draw[<->, densely dashed] (0*\X+25,0*\Y-10) -- (3*\X-5, -1*\Y+5);
+  \draw[<->, densely dashed] (0*\X+19,0*\Y-10) -- (4*\X-5, -2*\Y+5);
+  \draw[<->, densely dashed] (0*\X+13,0*\Y-10) -- (3*\X-5, -2*\Y+5);
+  \draw[<->, densely dashed] (0*\X+6,0*\Y-10) -- (2*\X-5, -2*\Y+5);
+  \draw[<->, densely dashed] (0*\X+3,0*\Y-10) -- (1*\X-5, -2*\Y+5);
+
+\end{tikzpicture}
