@@ -12,4 +12,31 @@ can read or modify it apart from its creator. When the user is ready to share
 its content with collaborators of his, he simply copy--pastes a uniform resource
 locator (URL) to them. Once the collaborators open the link, it automatically
 connects them to the editing session of the creator. It retrieves the shared
-document and they can start the real-time collaborative editing.
+document and they can start the real-time collaborative editing. In turn, they
+are able to share the access to the document too.
+
+\begin{figure*}
+  \includegraphics[width=\textwidth]{./img/screenshot.png}
+  \caption{\label{img:screenshot} Screenshot of the web application containing
+    two editors: on the left, a document is written in markdown language which
+    is previewed on the right editor.}
+\end{figure*}
+
+Figure~\ref{img:screenshot} shows a screenshot of the graphical user interface
+of \CRATE. In this scenario, two editors are running in a same instance of the
+web application. The editing session comprises two members nonetheless. The
+leftmost author writes the \emph{readme} file of the Github repository about
+\CRATE. The green earth indicates that the editing session is live. The blue
+(spinning) circle indicates that he opens the access to its document. Therefore,
+anyone can join it with the proper URL. The rightmost editor is dedicated to the
+rendering of the document written in markdown language. It has a green earth
+indicating a connected state but contrarily to the leftmost editor, it is not
+sharing the access to the document.
+
+URLs are the means to access to editing sessions, hence, to documents. However,
+an URL does not always grant the access to the live editing session for there
+must be at least one sharer among the editors. Also, there may exist multiple
+URLs leading to a same editing session using different joining parameters. As we
+observe in Figure~\ref{fig:screenshot}, \CRATE enables hyperlinks. By the same, it
+allows surfing between editing sessions like any user would do on Wikipedia,
+yet, with real-time capabilities.
