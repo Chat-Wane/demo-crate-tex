@@ -25,8 +25,8 @@ scalable manner.
 \SPRAY's lifecycle at each editor comprises three steps that aim to provide and
 maintain logarithmically scaling neighborhood tables compared to the editing
 session size:
-\begin{enumerate}[(i)]
-\item \textbf{the joining:} the editor wants to join the editing session. It
+\begin{asparadesc}
+\item [\textbf{The joining:}] the editor wants to join the editing session. It
   contacts an editor inside the network and waits for its answer to establish
   the very first WebRTC connection between them. Using this connection, the
   joining editor asks to its contact editor to operate as mediator to advertise
@@ -35,17 +35,17 @@ session size:
   number of connections in the network grows by $\log(N)+1$ where $\log(N)$ is
   the natural logarithm of the network size $N$. Following such growth, the
   number of connections globally is $N.\log(N)$.
-\item \textbf{the shuffling:} each editor regularly initiates a table shuffling
-  with the oldest of its neighbors. The initiator serves as mediator between
-  half of its neighborhood chosen at random and the oldest neighbor. In
+\item [\textbf{The shuffling:}] each editor regularly initiates a table
+  shuffling with the oldest of its neighbors. The initiator serves as mediator
+  between half of its neighborhood chosen at random and the oldest neighbor. In
   response, the oldest neighbor does the same. As a result, they roughly have an
   identical neighborhood size which tackles the load-balancing problem that may
   rise from the joining part of the protocol. It is worth noting that the number
   of connection remains constant. In addition, the references in neighborhood
   tables are randomly distributed. The network converges in exponential time
-  toward a topology exposing properties similar to those of random graphs
-  (\REF).
-\item \textbf{the leaving:} the editor can leave the network without giving
+  toward a topology exposing properties similar to those of random
+  graphs~\cite{erdos1959random}.
+\item [\textbf{The leaving:}] the editor can leave the network without giving
   notice, i.e., equivalent to a crash. Nevertheless, its removal from the system
   must lead to a decrease of $\log(N)+1$ connections while currently it
   represents $\log(N)$ connections from its neighborhood tables, and $\log(N)$
@@ -55,21 +55,28 @@ session size:
   shuffle with it. Since such detection presumably happen $\log(N)$ times, they
   all duplicate one of their neighbors except for one; the probability being
   processed using their own neighborhood table size. 
-\end{enumerate}
+\end{asparadesc}
 
 Such random peer sampling protocol constitutes the ground of various protocols
-such as topology managements, \TODO{moar} etc. \CRATE uses it to disseminate all
-operations of the replicated sequence to all collaborators in a scalable
-manner. Referred as epidemic dissemination, rumor mongering, or gossiping, the
-protocol is a two-step operation:
+such as topology managements. \CRATE uses it to disseminate all operations of
+the replicated sequence to all collaborators in a scalable manner. Referred as
+epidemic dissemination, rumor mongering, or gossiping, the protocol is a
+two-step operation:
 \begin{inparaenum}[(i)]
 \item Each operation performed on the local document replica leads to the
   creation of a message. The latter is sent to all the neighborhood provided by
   \SPRAY.
 \item Each editor receiving such broadcast message transmits it again to its
-  neighborhood. (\TODO{it checks if it already received it})
+  neighborhood.
 \end{inparaenum}
-Thus, messages transitively reach all collaborators very efficiently.
+Thus, messages transitively reach all collaborators very efficiently.  This
+dissemination protocol inherits from \SPRAY's adaptiveness. Hence, traffic
+follows the editing session size.
+
+Prior approaches generally oversize the partial views to handle largest groups
+of users. Unfortunately, smaller groups suffer from such \emph{a priori}
+dimensioning. Since \SPRAY automatically adjusts neighborhood table sizes, it
+equally handles from smallest to largest groups.
 
 %%% Local Variables:
 %%% mode: latex
