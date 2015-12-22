@@ -16,30 +16,27 @@ are applied by editors, the replicates converge to an equivalent state
 allowing users to read the same document.  This property is called
 \emph{strong eventual consistency}~\cite{bailis2013eventual}.
 
-\CRATE uses a Conflict\--Free Replicated Data structure (CRDT) for
-sequences to ensure strong eventual consistency on the
-document~\cite{shapiro2011comprehensive}. Consistency is ensured at
-the price of unique identifier attached to each element of the
-sequence. Recently, \LSEQ~\cite{nedelec2013lseq} proposed a strategy
-to bound the space complexity of these identifiers to $log(n)^2$ where
-$n$ is the total size of document. This results avoids to run costly
-distributed garbage-collection-like mechanism to maintain the
-efficiency of the editor.
+\CRATE uses a Conflict-free Replicated Data Type (CRDT) for sequences to ensure
+strong eventual consistency on the
+document~\cite{shapiro2011comprehensive}. They ensure consistency at the price
+of a unique identifier attached to each element of the sequence. Recently,
+\LSEQ~\cite{nedelec2013lseq} proposed a strategy to bound the space complexity
+of these identifiers to $\mathcal{O}(\log(d)^2)$ where $d$ is the document
+size. This result avoids to run costly distributed garbage-collection-like
+mechanisms to maintain the efficiency of the editor.
 
-Strong consistency is ensured if every operations sent by a user is
-eventually received by all participants of the editing
-sessions. \CRATE builds an editing session using
+Eventual consistency requires that all operations are received by all editing
+session members.  \CRATE builds an editing session using
 \SPRAY~\cite{nedelec2015spray}, a random peer sampling
-protocol~\cite{jelasity2007gossip} (RPS) built on top of WebRTC. A
-peer-sampling protocol allow participants of a network to just have a
-random partial view of whole network. Maintaining this partial view
-random ensures the connectivity of the network. Unlike prior RPS,
-\SPRAY allow to adapt the size of the partial view to the editing
-session size without measuring the number of participants. Since the
-propagation protocol of messages~\cite{birman1999bimodal} extensively
-uses these tables, the network traffic inherits from this
-scalability. Consequently, \CRATE adapts its operation to the need of
-the editing session size.
+protocol~\cite{jelasity2007gossip} (RPS) built on top of WebRTC. A peer sampling
+protocol provides each network member with a partial view of the network
+significantly smaller compared to this latter. Maintaining this partial view
+random ensures the connectivity of the network. Unlike prior RPS, \SPRAY allows
+adapting the partial view sizes to the editing session size without
+measuring its number of participants. Since the propagation protocol of
+messages~\cite{birman1999bimodal} extensively uses these tables, the network
+traffic inherits from this scalability. Consequently, \CRATE adapts its
+operation to the need of the editing session size.
 
 
 The distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
@@ -48,7 +45,7 @@ JavaScript. As shown in Figure~\ref{fig:architecture}, \CRATE comprises four
 layers:
 \begin{enumerate}[(i)]
 \item [\textbf{the graphical user interface}] that renders the document to the users
-  (cf. Figure~\ref{img:screenshot}). Each local update is immediatly applied to
+  (cf. Figure~\ref{img:screenshot}). Each local update is immediately applied to
   the document view for real-time sake. Then, the update is applied to the
   replicated data type;
 \item [\textbf{the replicated data type layer}] that represents the local document
