@@ -2,46 +2,51 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Real-time collaborative editors allow authors to simultaneously write
-shared documents~\cite{greenberg1994real}. Trending editors such as
-Google Docs rely on central servers. They raise privacy issues since
-service providers take advantage of their mediating position to
-observe all users and documents. They also raise scalability issues: a
-server is required to support one editing session, so handling many
-editing sessions require many ressources. Also managing many
-participants in one editing session is costly and may overload the server.
+Real-time collaborative editors allow authors to simultaneously write shared
+documents~\cite{greenberg1994real}. Trending editors such as Google Docs rely on
+central servers. They raise privacy issues since service providers take
+advantage of their mediating position to observe all users and documents. They
+also raise scalability issues, for they require a server to support an editing
+session, so handling many editing sessions requires many resources. Also
+managing large editing sessions puts a lot of pressure on the server which may
+become overloaded.
 
-\CRATE is a distributed and decentralized
-\textsc{c}ollabo\textsc{rat}ive \textsc{e}ditor providing scalable
-real-time editing capabilities directly within existing web
-browsers. Compared to state of art, \CRATE is the first real-time
-editor that only require browsers to support collaborative editing and
-handle transparently small groups to large groups of
-users. 
-Suppose a massive online lecture platfrom allows participants to share
-notes about the lecture. Many lectures can run in parallel with
-various number of participants ie. from few to thousands. Even during
-one editing session, the number of participants can change
-significantly, from thousands to few hundreds. The size of document
-produced by users is also hard to predict: it can vary from few pages
-to hundreds of pages. 
+%% managing many participants in one editing session is costly and may overload the
+%% server.
+
+\CRATE is a distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
+\textsc{e}ditor providing scalable real-time editing capabilities directly
+within web browsers. Compared to state-of-the-art, \CRATE is the first real-time
+editor that only requires browsers to support collaborative editing and to
+transparently handle from small to large groups of users.
+
+Suppose massive online lecture platforms allow students to share their
+notes. Many lectures run in parallel involving various number of students, i.e.,
+from few to thousands. Also, even during the editing session the audience is subject
+to significant changes in size, going from thousands to hundreds. Finally, the
+resulting document size is hardly predictible, for it depends of the number and
+zelous of involved students.
+%% even during one editing session, the number of participants can change
+%% significantly, from thousands to few hundreds. The size of document
+%% produced by users is also hard to predict: it can vary from few pages
+%% to hundreds of pages. 
 
 \CRATE handles these situations by combining different algorithms to
 achieve an acceptable trade-off between space, time and communication
-complexities. We observed this trade-off \CRATE in lab on configurations up
-to 600 browsers. In this paper:
+complexities. In laboratory, we observed this trade-off on configurations
+involving up till 600 browsers. In this paper:
 \begin{inparaenum}[(i)]
-\item we describe the architecture and the properties of the \CRATE
-  decentralized real-time editor;
-\item we describe its usage through a walkthrough example. We propose
+\item we describe the architecture and the properties of \CRATE and
+\item we describe its usage with a walkthrough example. We propose
   a live experience to WWW2016 participants.
 \end{inparaenum}
 
+Section~\ref{sec:usage} depicts how to start with \CRATE.
 Section~\ref{sec:architecture} details the overall architecture of \CRATE along
-with its basic functioning. Section~\ref{sec:structure} describes the
-distributed data structure that represents the
-document. Section~\ref{sec:network} details the network building
-operation. Section~\ref{sec:live} states the live experiment setup we
+with its basic functioning. Section~\ref{sec:network} shows the way to build
+decentralized networks directly in browsers.  Section~\ref{sec:structure}
+describes the distributed data structure that represents the document.
+Section~\ref{sec:live} states the live experiment setup we
 propose. Section~\ref{sec:conclusion} concludes.
 
 
