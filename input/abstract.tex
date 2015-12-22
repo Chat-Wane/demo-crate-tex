@@ -1,26 +1,22 @@
 
 \begin{abstract}
   Real-time collaborative editors are common tools to distribute work
-  across space, time, and organizations. Unfortunately, 
-  mainstream editors such as Google Docs rely on central servers which
-  require ressources and raises privacy and scalability issues.
-  \CRATE is a real-time decentralized collaborative editor that runs
-  directly in web browsers thanks to WebRTC. Compared to state of art,
-  \CRATE is the first real-time editor that only require browsers to
-  support collaborative editing and handle
-  transparently small groups to large groups of users. Consequently,
-  \CRATE is not restricted to traditional collaborative editing but
-  can also be used in massive online lectures, TV shows or large
-  conferences to allow users to share their notes. \CRATE properties
-  rely on two scientific results: i) a replicated sequence structure
-  with sub-linear upper-bound space complexity; this prevents the
-  editor to run costly distributed garbage collectors, ii) an adaptive
-  peer-sampling protocol; this prevent the editor to oversize routing
-  tables and let small networks pay the price of large networks. This
-  paper describes \CRATE and its properties. It proposes a live
-  experiment where \CRATE will be deployed on the large group of
-  WWW2016 participants. We aim to collect a real-world editing corpus
-  to validate results obtained in lab.
+  across space, time, and organizations. Unfortunately, mainstream
+  editors such as Google Docs rely on central servers and raises
+  privacy and scalability issues.  \CRATE is a real-time decentralized
+  collaborative editor that runs directly in web browsers thanks to
+  WebRTC. Compared to state of art, \CRATE is the first real-time
+  editor that only require browsers to support collaborative editing
+  and handle transparently small groups to large groups of
+  users. Consequently, \CRATE can also be used in massive online
+  lectures, TV shows or large conferences to allow users to share
+  their notes. \CRATE properties rely on two scientific results: i) a
+  replicated sequence structure with sub-linear upper-bound space
+  complexity; this prevents the editor to run costly distributed
+  garbage collectors, ii) an adaptive peer-sampling protocol; this
+  prevent the editor to oversize routing tables and let small networks
+  pay the price of large networks. This paper describes \CRATE, its
+  properties and its usage.
 \end{abstract}
 
 \keywords{Collaborative editor, decentralized, real-time}

@@ -1,26 +1,27 @@
 
 \section{Usage}
 
+\begin{figure*}
+  \includegraphics[width=\textwidth]{./img/screenshot.png}
+  \caption{\label{img:screenshot} Screenshot of the web application containing
+    two editors: on the left, a document is written in markdown language which
+    is previewed on the right editor.}
+\end{figure*}
+
 \CRATE is a real-time collaborative editor running in web browsers. As a web
 application, it is hosted on a web server at
 \emph{\url{http://chat-wane.github.io/CRATE/}}. Hence, users simply navigate to
-the web page with their web browser\footnote{A small restriction being that it
-  must support WebRTC.}.
+the web page with their web browser\footnote{The browser must support WebRTC.}.
 
-A user creates a document. At the time, the document is only local and no one
-can read or modify it apart from its creator. When the user is ready to share
-its content with collaborators of his, he simply copy--pastes a uniform resource
-locator (URL) to them. Once the collaborators open the link, it automatically
-connects them to the editing session of the creator. It retrieves the shared
-document and they can start the real-time collaborative editing. In turn, they
-are able to share the access to the document too.
+A user creates a document. At the time, the document is only local and
+no one can read or modify it apart from its creator. When the user is
+ready to share , \CRATE is crafting an editing session URL that can
+sent by mail or published on twitter. 
 
-% \begin{figure*}
-%   \includegraphics[width=\textwidth]{./img/screenshot.png}
-%   \caption{\label{img:screenshot} Screenshot of the web application containing
-%     two editors: on the left, a document is written in markdown language which
-%     is previewed on the right editor.}
-% \end{figure*}
+Once the collaborators open the link, it automatically connects them
+to the editing session of the creator. It retrieves the shared
+document and they can start the real-time collaborative editing. In
+turn, they are able to share the access to the document too. 
 
 Figure~\ref{img:screenshot} shows a screenshot of the graphical user interface
 of \CRATE. In this scenario, two editors are running in a same instance of the
