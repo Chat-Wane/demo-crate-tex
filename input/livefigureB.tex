@@ -22,6 +22,11 @@
   \draw[->] (0pt, \Y) -- (\X, 5+3*\Y); %% p8 p6
   \draw[->] (0pt, \Y) -- (-5+3*\X, \Y); %% p8 p3
   
+  \draw[fill=white] (-2*\X, 0) node{mediator} +(-20pt, -5pt)rectangle+(20pt, 5pt);
+
+  \draw[<->, densely dashed] (20-2*\X, 0) -- node[anchor=south]{share} (-5+\X, 0);
+  \draw[<->, densely dashed] (20-2*\X, -5pt) -- (-5pt, \Y);
+
   \draw[fill=white] (\X, 0)node{$e_1$}+(-5pt, -5pt)rectangle+(5pt, 5pt);
   \draw[fill=white] (2*\X, 0)node{$e_2$}+(-5pt, -5pt)rectangle+(5pt, 5pt);
   \draw[fill=white] (3*\X, \Y)node{$e_3$}+(-5pt, -5pt)rectangle+(5pt, 5pt);
