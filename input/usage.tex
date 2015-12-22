@@ -16,8 +16,8 @@ the web page with their web browser\footnote{The browser must support WebRTC.}.
 
 A user creates a document. At the time, the document is only local and
 no one can read or modify it apart from its creator. When the user is
-ready to share , \CRATE is crafting an editing session URL that can
-sent by mail or published on twitter. 
+ready to share, \CRATE is crafting an editing session URL that can be
+sent by mail, or published on twitter etc. 
 
 Once the collaborators open the link, it automatically connects them
 to the editing session of the creator. It retrieves the shared
@@ -35,11 +35,16 @@ rendering of the document written in markdown language. It has a green earth
 indicating a connected state but contrarily to the leftmost editor, it is not
 sharing the access to the document.
 
-\TODO{comment elle est résolue cette url ??}
-URLs are the means to access to editing sessions, hence, to documents. However,
-an URL does not always grant the access to the live editing session for there
-must be at least one sharer among the editors. Also, there may exist multiple
-URLs leading to a same editing session using different joining parameters. As we
-observe in Figure~\ref{img:screenshot}, \CRATE enables hyperlinks. By the same,
-it allows surfing between editing sessions like any user would do on Wikipedia,
-yet, with real-time capabilities.
+URLs are the means to access to editing sessions, hence, to
+documents. Internally, when a browser opens the link it retrieves the web
+application. The latter queries a mediator server with the parameters contained
+in the link. The mediator server tries to establish the very first contact
+between the joining browser and an editing session sharer.  The mediator ensures
+solely a minimal service consisting in the editing session accessibility.
+
+Yet, an URL does not always grant the access to the live editing session, for
+there must be at least one sharer among the editors. Also, there may exist
+multiple URLs leading to a same editing session using different joining
+parameters. As we observe in Figure~\ref{img:screenshot}, \CRATE enables
+hyperlinks. By the same, it allows surfing between editing sessions like any
+user would do on Wikipedia, yet, with real-time capabilities.
