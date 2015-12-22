@@ -3,12 +3,12 @@
 \label{sec:structure}
 
 To provide eventually consistent replicas, \CRATE uses a conflict-free
-replicated data type for sequences. Such sequence type avoids the difficult and
-error-prone task of solving conflicts by the mean of commutative
-operations. Thus, the sequence type provides two basic operations: the insertion
-and removal of an element. If two users perform concurrently some operations at
-an identical position in the sequence, the latter will still converge to an
-equivalent state.
+replicated data type for sequences~\cite{shapiro2011comprehensive}. Such
+sequence type avoids the difficult and error-prone task of solving conflicts by
+the mean of commutative operations. Thus, the sequence type provides two basic
+operations: the insertion and removal of an element. If two users perform
+concurrently some operations at an identical position in the sequence, the
+latter will still converge to an equivalent state.
 
 Commutativity comes at the price of additional metadata attached to each
 element of the sequence. These metadata referred to as identifier are unique,
@@ -35,7 +35,7 @@ global total order amongst identifiers, hence, ordering characters of the
 document. While the third equivalence is mostly used to locate the proper
 inserting position, the fourth equivalence is necessary for removals.  Paths of
 identifiers constitute the most discriminant part of identifiers, hence the most
-important part. The rest of this section focuses on these.
+important part.
 
 \CRATE uses \LSEQ to generate the paths of identifiers. The paths are series of
 integers $[p_1.p_2\ldots p_k]$ where each path is chosen among a set twice as
@@ -48,7 +48,7 @@ insertions in the sequence, and without \emph{a priori} knowledge of the series
 of updates.
 
 Keeping the size under such a sub-linear bound avoids the need of an unafordable
-distributed garbage-collecting-like mechanism, hence, any global knowledge.
+distributed garbage-collecting-like mechanism.
 
 %%% Local Variables:
 %%% mode: latex
