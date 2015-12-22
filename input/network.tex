@@ -14,14 +14,14 @@
 \end{figure}
 
 
-\CRATE uses \SPRAY to build a network of browsers thanks to WebRTC. The latter
-is a recent technology that allows establishing browser-to-browser channels of
-communication. Its connection establishment protocol imposes a round-trip of
-messages. Thus, if an editor $e_1$ wants to connect to another editor $e_2$, it
-needs to send a message to $e_2$ and to acknowledge its response. While the
-first of such connection must use a mediator (e.g. mail, dedicated server etc.),
-once established, the network can assume the position of mediator and start
-working autonomously.
+\CRATE uses \SPRAY~\cite{nedelec2015spray} to build a network of browsers thanks
+to WebRTC. The latter is a recent technology that allows establishing
+browser-to-browser channels of communication. Its connection establishment
+protocol imposes a round-trip of messages. Thus, if an editor $e_1$ wants to
+connect to another editor $e_2$, it needs to send a message to $e_2$ and to
+acknowledge its response. While the first of such connection must use a mediator
+(e.g. mail, dedicated server etc.), once established, the network can assume the
+position of mediator and start working autonomously.
 
 Random peer sampling protocols provide each editor with a local neighborhood
 table. These tables allow communicating to a subset of peers (here
@@ -56,7 +56,7 @@ session size:
   of connection remains constant. In addition, the references in neighborhood
   tables are randomly distributed. The network converges in exponential time
   toward a topology exposing properties similar to those of random
-  graphs~\cite{erdos1959random} (cf. Figure~\ref{fig:spray}).
+  graphs (cf. Figure~\ref{fig:spray}).
 \item [\textbf{The leaving:}] the editor can leave the network without giving
   notice, i.e., equivalent to a crash. Nevertheless, its removal from the system
   must lead to a decrease of $\log(N)+1$ connections while currently it
