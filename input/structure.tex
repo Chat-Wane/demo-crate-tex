@@ -42,10 +42,9 @@ integers $[p_1.p_2\ldots p_k]$ where each path is chosen among a set twice as
 large as its preceiding path. For instance, if $p_1$ is chosen among
 $\{0..2^8\}$ then $p_2$ is chosen among $\{0..2^9\}$ etc.  When the document
 grows, the depth of identifiers is expected to grow. Therefore, increasing the
-size of sets over depths decreases the growth in depth. In turn, \LSEQ allocates
+size of sets over depths decreases the growth in depth.  \LSEQ allocates
 identifiers polylogarithmically upper-bounded compared to the number of
-insertions in the sequence, and without \emph{a priori} knowledge of the series
-of updates.
+insertions, without \emph{a priori} knowledge of the series of updates.
 
 Keeping the size under such a sub-linear bound avoids the need of an unafordable
 distributed garbage-collecting-like mechanism.
