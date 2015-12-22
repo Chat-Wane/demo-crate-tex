@@ -43,23 +43,23 @@ The distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
 \textsc{e}ditor \CRATE developed in web languages only: HTML, CSS, and mostly
 JavaScript. As shown in Figure~\ref{fig:architecture}, \CRATE comprises four
 layers:
-\begin{enumerate}[(i)]
-\item [\textbf{the graphical user interface}] that renders the document to the users
+\begin{asparadesc}
+\item [\textbf{The graphical user interface}] that renders the document to the users
   (cf. Figure~\ref{img:screenshot}). Each local update is immediately applied to
   the document view for real-time sake. Then, the update is applied to the
   replicated data type;
-\item [\textbf{the replicated data type layer}] that represents the local document
+\item [\textbf{The sequence structure layer}] that represents the local document
   (cf. §\ref{sec:structure}). It is in charge of providing the metadata
   necessary to order each character identically anywhere;
-\item [\textbf{the causality layer}] that tracks semantic causality between operations,
+\item [\textbf{The causality layer}] that tracks semantic causality between operations,
   e.g., the removal of a character cannot precede its insertion;
-\item [\textbf{the network layer}] that
-  \begin{inparaenum}
+\item [\textbf{The network layer}] that
+  \begin{inparaenum}[(i)]
   \item builds a network of browsers for each editing session and
   \item uses it to propagate the updates to all collaborators
     (cf. §\ref{sec:network}).
   \end{inparaenum}
-\end{enumerate}
+\end{asparadesc}
 
 
 

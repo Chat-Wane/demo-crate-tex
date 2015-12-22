@@ -4,8 +4,10 @@
 
 \begin{figure}
   \centering
-\input{input/livefigureB.tex}g  
-  \caption{SPRAY network \TODO{we need a figure like that}}
+  \input{input/livefigureB.tex}
+  \caption{Example of small network built by \SPRAY. Each editor $e$ can
+    communicate with a small partial view of the network. For instance, Editor
+    $e_8$'s partial view comprises $e_2$, $e_3$ and $e_6$.}
   \label{fig:spray}
 \end{figure}
 
@@ -52,7 +54,7 @@ session size:
   of connection remains constant. In addition, the references in neighborhood
   tables are randomly distributed. The network converges in exponential time
   toward a topology exposing properties similar to those of random
-  graphs~\cite{erdos1959random}.
+  graphs~\cite{erdos1959random} (cf. Figure~\ref{fig:spray}).
 \item [\textbf{The leaving:}] the editor can leave the network without giving
   notice, i.e., equivalent to a crash. Nevertheless, its removal from the system
   must lead to a decrease of $\log(N)+1$ connections while currently it
