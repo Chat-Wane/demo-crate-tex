@@ -29,17 +29,17 @@ session members.  \CRATE builds an editing session using
 \SPRAY~\cite{nedelec2015spray}, a random peer sampling
 protocol~\cite{jelasity2007gossip} (RPS) built on top of WebRTC. A peer sampling
 protocol provides each network member with a partial view of the network
-significantly smaller compared to this latter. Maintaining this partial view
-random ensures the connectivity of the network. Unlike prior RPS, \SPRAY allows
-adapting the partial view sizes to the editing session size without measuring
-its number of participants. Since the propagation protocol of messages
+significantly smaller compared to this latter. Maintaining randomness among
+partial views ensures the connectivity of the network. Unlike prior RPS, \SPRAY
+allows adapting the partial view sizes to the editing session size without
+measuring its number of participants. Since the propagation protocol of messages
 extensively uses these tables, the network traffic inherits from this
-scalability. Consequently, \CRATE adapts its operation to the need of the
-editing session size.
+scalability. Consequently, \CRATE adapts its operation to the needs of the
+editing session.
 
 
 The distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
-\textsc{e}ditor \CRATE developed in web languages only: HTML, CSS, and mostly
+\textsc{e}ditor \CRATE is developed in web languages only: HTML, CSS, and mostly
 JavaScript. As shown in Figure~\ref{fig:architecture}, \CRATE comprises four
 layers:
 \begin{itemize}
