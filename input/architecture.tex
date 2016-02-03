@@ -15,8 +15,8 @@ integrating a same set of changes have replicas converging to an equivalent
 state, i.e., users read the same document.  This property is called strong
 eventual consistency~\cite{shapiro2011comprehensive}.
 
-\CRATE uses a Conflict-free Replicated Data Type~\cite{shapiro2011comprehensive}
-(CRDT) for sequences to ensure such property. CRDTs ensure consistency at the
+\CRATE uses a Conflict-free Replicated Data Type (CRDT) for sequences to ensure
+such property~\cite{shapiro2011comprehensive}. CRDTs ensure consistency at the
 price of a unique identifier attached to each element of the sequence. Recently,
 \LSEQ~\cite{nedelec2013lseq} proposed a strategy to bound the space complexity
 of these identifiers to $\mathcal{O}(\log(d)^2)$ where $d$ is the document
@@ -34,7 +34,6 @@ allows adapting the partial view sizes to the editing session size without
 measuring its number of participants. Since the propagation protocol of messages
 extensively uses these tables, the network traffic inherits this scalability.
 \CRATE adapts its operation to the needs of the editing session.
-
 
 The distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
 \textsc{e}ditor \CRATE is developed in web languages only: HTML, CSS, and mostly
