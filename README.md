@@ -31,3 +31,14 @@ usage.
 
 ## BibTeX (TODO)
 
+## Acknowledgments
+
+This work was partially funded by the French ANR project SocioPlug
+([ANR-13-INFR-0003](http://www.agence-nationale-recherche.fr/?Projet=ANR-13-INFR-0003)),
+and by the DeSceNt project granted by the Labex CominLabs excellence laboratory
+([ANR-10-LABX-07-01](http://www.descent.cominlabs.ueb.eu/fr)).
+
+Experiments presented in this paper were carried out using the Grid'5000
+testbed, supported by a scientific interest group hosted by Inria and including
+CNRS, RENATER and several Universities as well as other organizations (see
+[official website](https://www.grid5000.fr)).
