@@ -21,12 +21,14 @@ monotonic local counter $c_i$.
 A lexicographic total order amongst these identifiers allows retrieving the
 sequence:
 \begin{align*}
-  \ell_i < \ell_j \iff & (p_i < p_j) \vee \\
+(1)\,\,\,  \ell_i < \ell_j \iff & (p_i < p_j) \vee \\
                        & ((p_i = p_j) \wedge (s_i<s_j)) \vee \\
                        & ((p_i = p_j) \wedge (s_i = s_j) \wedge (c_i < c_j)) \\
-  \ell_i = \ell_j \iff & \neg (\ell_i < \ell_j) \wedge \neg (\ell_j < \ell_i) \\
-  i_i < i_j \iff & \exists (m > 0)(\forall n < m) (\ell^i_n = \ell^j_n) \wedge (\ell^i_m < \ell^j_m) \\
-  i_i = i_j \iff & (\forall m) \ell^i_n = \ell^j_n
+(2)\,\,\,  \ell_i = \ell_j \iff & \neg (\ell_i < \ell_j) \wedge \neg (\ell_j < \ell_i) \\
+\end{align*}
+\begin{align*}
+(3)\,\,  i_i < i_j \iff & \exists (m > 0)(\forall n < m) (\ell^i_n = \ell^j_n) \wedge (\ell^i_m < \ell^j_m) \\
+(4)\,\,  i_i = i_j \iff & (\forall m) \ell^i_n = \ell^j_n
 \end{align*}
 
 The first two equivalences define an ordering between elements of the list

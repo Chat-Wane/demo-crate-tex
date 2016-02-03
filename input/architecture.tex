@@ -10,15 +10,14 @@
 
 \CRATE is based on the optimistic replication scheme. Thus, each editor
 replicates the document locally and directly performs operations on it. Next,
-changes are spread to all other participants. When the same set of operations
-are applied by editors, the replicates converge to an equivalent state allowing
-users to read the same document.  This property is called \emph{strong eventual
-  consistency}~\cite{bailis2013eventual}.
+changes are spread to all other participants. The system is correct iff editors
+integrating a same set of changes have replicas converging to an equivalent
+state, i.e., users read the same document.  This property is called strong
+eventual consistency~\cite{shapiro2011comprehensive}.
 
-\CRATE uses a Conflict-free Replicated Data Type (CRDT) for sequences to ensure
-strong eventual consistency on the
-document~\cite{shapiro2011comprehensive}. They ensure consistency at the price
-of a unique identifier attached to each element of the sequence. Recently,
+\CRATE uses a Conflict-free Replicated Data Type~\cite{shapiro2011comprehensive}
+(CRDT) for sequences to ensure such property. CRDTs ensure consistency at the
+price of a unique identifier attached to each element of the sequence. Recently,
 \LSEQ~\cite{nedelec2013lseq} proposed a strategy to bound the space complexity
 of these identifiers to $\mathcal{O}(\log(d)^2)$ where $d$ is the document
 size. This result avoids to run costly distributed garbage-collection-like
@@ -33,16 +32,15 @@ significantly smaller compared to this latter. Maintaining randomness among
 partial views ensures the connectivity of the network. Unlike prior RPS, \SPRAY
 allows adapting the partial view sizes to the editing session size without
 measuring its number of participants. Since the propagation protocol of messages
-extensively uses these tables, the network traffic inherits from this
-scalability. Consequently, \CRATE adapts its operation to the needs of the
-editing session.
+extensively uses these tables, the network traffic inherits this scalability.
+\CRATE adapts its operation to the needs of the editing session.
 
 
 The distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
 \textsc{e}ditor \CRATE is developed in web languages only: HTML, CSS, and mostly
 JavaScript. As shown in Figure~\ref{fig:architecture}, \CRATE comprises four
 layers:
-\begin{itemize}
+\begin{asparadesc}
 \item [\textbf{The graphical user interface}] that renders the document to the users
   (cf. Figure~\ref{img:screenshot}). Each local update is immediately applied to
   the document view for real-time sake. Then, the update is applied to the
@@ -58,7 +56,7 @@ layers:
   \item uses it to propagate the updates to all collaborators
     (cf. §\ref{sec:network}).
   \end{inparaenum}
-\end{itemize}
+\end{asparadesc}
 
 
 
