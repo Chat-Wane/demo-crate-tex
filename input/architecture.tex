@@ -8,23 +8,24 @@
   \caption{\label{fig:architecture} Four layers architecture of \CRATE.}
 \end{figure}
 
-\CRATE is based on the optimistic replication scheme. Thus, each editor
-replicates the document locally and directly performs operations on it. Next,
-changes are spread to all other participants. The system is correct iff editors
-integrating a same set of changes have replicas converging to an equivalent
-state, i.e., users read the same document.  This property is called strong
-eventual consistency~\cite{shapiro2011comprehensive}.
+To provide availability and responsiveness of documents, \CRATE follows the
+optimistic replication scheme. Each editor replicates the document locally and
+directly performs operations on it. Next, the editor spreads its changes to all
+other participants. The system is correct iff editors integrating a same set of
+changes have replicas converging to an equivalent state, i.e., users read the
+same document.  This property is called strong eventual
+consistency~\cite{shapiro2011comprehensive}.
 
 \CRATE uses a Conflict-free Replicated Data Type (CRDT) for sequences to ensure
 such property~\cite{shapiro2011comprehensive}. CRDTs ensure consistency at the
 price of a unique identifier attached to each element of the sequence. Recently,
 \LSEQ~\cite{nedelec2013lseq} proposed a strategy to bound the space complexity
 of these identifiers to $\mathcal{O}(\log(d)^2)$ where $d$ is the document
-size. This result avoids to run costly distributed garbage-collection-like
-mechanisms to maintain the efficiency of the editor.
+size. As such, \CRATE does not require costly distributed
+garbage-collection-like mechanisms to maintain its efficiency.
 
-Eventual consistency requires that all operations are received by all editing
-session members.  \CRATE builds an editing session using
+Strong eventual consistency requires the eventual delivery of all operations to
+all editing session members.  \CRATE builds an editing session using
 \SPRAY~\cite{nedelec2015spray}, a random peer sampling
 protocol~\cite{jelasity2007gossip} (RPS) built on top of WebRTC. A peer sampling
 protocol provides each network member with a partial view of the network
@@ -35,10 +36,9 @@ measuring its number of participants. Since the propagation protocol of messages
 extensively uses these tables, the network traffic inherits this scalability.
 \CRATE adapts its operation to the needs of the editing session.
 
-The distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
-\textsc{e}ditor \CRATE is developed in web languages only: HTML, CSS, and mostly
-JavaScript. As shown in Figure~\ref{fig:architecture}, \CRATE comprises four
-layers:
+The decentralized collaborative editor \CRATE is developed in web languages
+only: HTML, CSS, and mostly JavaScript. As shown by
+Figure~\ref{fig:architecture}, \CRATE comprises four layers:
 \begin{asparadesc}
 \item [\textbf{The graphical user interface}] that renders the document to the users
   (cf. Figure~\ref{img:screenshot}). Each local update is immediately applied to
@@ -56,8 +56,6 @@ layers:
     (cf. §\ref{sec:network}).
   \end{inparaenum}
 \end{asparadesc}
-
-
 
 %%% Local Variables:
 %%% mode: latex

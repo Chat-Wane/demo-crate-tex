@@ -5,12 +5,11 @@
 \begin{figure}
   \centering
   \input{input/livefigureB.tex}
-  \caption{Example of a small network built by \SPRAY. Each editor $e$ can
-    communicate with a small partial view of the network. For instance, Editor
-    $e_8$'s partial view comprises $e_2$, $e_3$ and $e_6$. In addition, $e_1$
-    and $e_8$ grant a public access to the editing session through
-    $mediator_1$. Editor $e_9$ is joining.}
-  \label{fig:spray}
+  \caption{\label{fig:spray} Example of a small network built by \SPRAY. Each
+    editor $e$ can communicate with a small partial view of the network. For
+    instance, Editor $e_8$'s partial view comprises $e_2$, $e_3$ and $e_6$. In
+    addition, $e_1$ and $e_8$ grant a public access to the editing session
+    through $mediator_1$. Editor $e_9$ is joining.}
 \end{figure}
 
 
@@ -27,12 +26,6 @@ Random peer sampling protocols provide each editor with a local neighborhood
 table. These tables allow communicating to a subset of editors. Messages travel
 from neighbor to neighbor to reach any editor in a scalable manner.
 
-%% Web browsers exist in most of current devices. \TODO{Moar.}
-
-%% \SPRAY is an adaptive random peer sampling protocol which provides each editor
-%% with a neighborhood table the size of which grows and shrinks following the
-%% global network size, yet without any global knowledge. 
-
 \SPRAY's lifecycle at each editor comprises three steps that aim to provide and
 maintain logarithmically scaling neighborhood tables compared to the editing
 session size:
@@ -42,10 +35,10 @@ session size:
   the very first WebRTC connection between them. Using this connection, the
   joining editor asks to its contact editor to operate as mediator to advertise
   its presence to the contact's neighbors. Each of these neighbors connects to
-  the joining peer. Since the number of neighbor is supposed logarithmic, the
+  the joining peer. Since the number of neighbors is supposed logarithmic, the
   number of connections in the network grows by $\log(N)+1$ where $\log(N)$ is
   the natural logarithm of the network size $N$. Following such growth, the
-  number of connections globally is $N.\log(N)$.
+  global number of connections is $N.\log(N)$.
 \item [\textbf{The shuffling:}] each editor regularly initiates a table
   shuffling with the oldest of its neighbors. The initiator serves as mediator
   between half of its neighborhood chosen at random and the oldest neighbor. In
@@ -63,14 +56,14 @@ session size:
   connections from other editors' neighborhood tables pointing to it. The
   adjusting falls under the responsibility of these other editors. For this
   purpose, they detect the departure of a neighbor when they try to initiate a
-  shuffle with it. Since such detection presumably happen $\log(N)$ times, they
+  shuffle with it. Since such detections presumably happen $\log(N)$ times, they
   all duplicate one of their neighbors except for one; the probability being
-  processed using their own neighborhood table size. 
+  processed using their own neighborhood table size.
 \end{asparadesc}
 
-Such random peer sampling protocol constitutes the ground of various protocols
-such as topology managements. \CRATE uses it to disseminate all operations of
-the replicated sequence to all collaborators in a scalable manner. Referred as
+Random peer sampling protocol constitutes the ground of various protocols such
+as topology managements. \CRATE uses it to disseminate all operations of the
+replicated sequence to all collaborators in a scalable manner. Referred as
 epidemic dissemination, rumor mongering, or gossiping, the protocol is a
 two-step operation:
 \begin{inparaenum}[(i)]
@@ -87,7 +80,7 @@ follows the editing session size.
 Prior approaches generally oversize the partial views to handle largest groups
 of users. Unfortunately, smaller groups suffer from such \emph{a priori}
 dimensioning. Since \SPRAY automatically adjusts neighborhood table sizes, it
-equally handles from smallest to largest groups.
+equally and transparantly handles from smallest to largest groups.
 
 %%% Local Variables:
 %%% mode: latex

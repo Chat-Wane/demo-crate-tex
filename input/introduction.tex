@@ -3,16 +3,12 @@
 \label{sec:introduction}
 
 Real-time collaborative editors allow authors to simultaneously write shared
-documents. Trending editors such as Google Docs rely on
-central servers. They raise privacy issues since service providers take
-advantage of their mediating position to observe all users and documents. They
-also raise scalability issues, for they require a server to support an editing
-session, so handling many editing sessions requires many resources. Also
-managing large editing sessions puts a lot of pressure on the server which may
-become overloaded.
-
-%% managing many participants in one editing session is costly and may overload the
-%% server.
+documents. Trending editors such as Google Docs rely on central servers. They
+raise privacy issues since service providers take advantage of their mediating
+position to observe all users and documents. They also raise scalability issues,
+for they require a server to support an editing session, so handling many
+editing sessions requires many resources. Managing large editing sessions puts a
+lot of pressure on the server which may become overloaded.
 
 \CRATE is a distributed and decentralized \textsc{c}ollabo\textsc{rat}ive
 \textsc{e}ditor providing scalable real-time editing capabilities directly
@@ -26,10 +22,6 @@ from few to thousands. Also, even during the editing session the audience is sub
 to significant changes in size, going from thousands to hundreds. Finally, the
 resulting document size is hardly predictable, for it depends of the number and
 zealous of involved students.
-%% even during one editing session, the number of participants can change
-%% significantly, from thousands to few hundreds. The size of document
-%% produced by users is also hard to predict: it can vary from few pages
-%% to hundreds of pages. 
 
 \CRATE handles these situations by combining different algorithms to achieve an
 acceptable trade-off between space, time and communication complexities. In

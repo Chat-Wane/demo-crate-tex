@@ -27,26 +27,26 @@ sequence:
 (2)\,\,\,  \ell_i = \ell_j \iff & \neg (\ell_i < \ell_j) \wedge \neg (\ell_j < \ell_i) \\
 \end{align*}
 \begin{align*}
-(3)\,\,  i_i < i_j \iff & \exists (m > 0)(\forall n < m) (\ell^i_n = \ell^j_n) \wedge (\ell^i_m < \ell^j_m) \\
-(4)\,\,  i_i = i_j \iff & (\forall m) \ell^i_n = \ell^j_n
+(3)\,\,  i_i < i_j \iff & \exists (m > 0)(\forall n < m),\, (\ell^i_n = \ell^j_n) \wedge (\ell^i_m < \ell^j_m) \\
+(4)\,\,  i_i = i_j \iff & \forall m,\, \ell^i_m = \ell^j_m
 \end{align*}
 
 The first two equivalences define an ordering between elements of the list
-composing the identifiers. The last two equivalences use these to define a
-global total order amongst identifiers, hence, ordering characters of the
+composing the identifiers. The last two equivalences use them to define a global
+total order amongst identifiers, hence, ordering characters of the
 document. While the third equivalence is mostly used to locate the proper
-inserting position, the fourth equivalence is necessary for removals.  Paths of
-identifiers constitute the most discriminant part of identifiers, hence the most
-important part.
+position of insertion, the fourth equivalence is necessary for removals.  Paths
+of identifiers constitute the most discriminant part of identifiers, hence the
+most important part.
 
 \CRATE uses \LSEQ to generate the paths of identifiers. The paths are series of
 integers $[p_1.p_2\ldots p_k]$ where each path is chosen among a set twice as
-large as its preceiding path. For instance, if $p_1$ is chosen among
-$\{0..2^8\}$ then $p_2$ is chosen among $\{0..2^9\}$ etc.  When the document
-grows, the depth of identifiers is expected to grow. Therefore, increasing the
-size of sets over depths decreases the growth in depth.  \LSEQ allocates
-identifiers polylogarithmically upper-bounded compared to the number of
-insertions, without \emph{a priori} knowledge of the series of updates.
+large as its preceding path. For instance, if $p_1$ is chosen among $\{0..2^8\}$
+then $p_2$ is chosen among $\{0..2^9\}$ etc.  When the document grows, the depth
+of identifiers is expected to grow. Therefore, increasing the size of sets over
+depths decreases the growth in depth.  \LSEQ allocates identifiers
+polylogarithmically upper-bounded compared to the number of insertions, without
+\emph{a priori} knowledge of the series of updates.
 
 Keeping the size under such a sub-linear bound avoids the need of an unafordable
 distributed garbage-collecting-like mechanism.
