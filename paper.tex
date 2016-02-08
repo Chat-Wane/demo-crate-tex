@@ -1,6 +1,9 @@
-\documentclass[conference]{sig-alternate-2013}
+\documentclass{sig-alternate-2013}
 
-\usepackage[marginratio=1:1,a4paper]{geometry}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+
+\usepackage[pass]{geometry}
 \usepackage[nocompress]{cite}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
@@ -58,15 +61,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{document}
+%% remove the extra dot at the end of the DOI
+\toappear{\the\boilerplate\par
+{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc}
 
-\permission{Copyright is held by the author/owner(s).}
-\conferenceinfo{WWW'16 Companion,}{April 11--15, 2016, Montr\'eal, Qu\'ebec, Canada.} 
+
+\permission{Copyright is held by the International World Wide Web Conference
+  Committee (IW3C2). IW3C2 reserves the right to provide a hyperlink to the
+  author's site if the Material is used in electronic media.}
+\conferenceinfo{WWW'16 Companion,}{April 11--15, 2016, Montr\'eal, Qu\'ebec,
+  Canada.}
 \copyrightetc{ACM \the\acmcopyr}
-\crdata{978-1-4503-4144-8/16/04. \\http://dx.doi.org/10.1145/2872518.2890539}
+\crdata{978-1-4503-4144-8/16/04. \\
+DOI: http://dx.doi.org/10.1145/2872518.2890539}
 
 \clubpenalty=10000 
 \widowpenalty = 10000
+
+\begin{document}
+
 
 \title{CRATE: Writing Stories Together with our Browsers}
 
