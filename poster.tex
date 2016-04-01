@@ -1,0 +1,56 @@
+\documentclass[a1paper, portrait]{baposter}
+
+\definecolor{base2}{RGB}{238,232,213}
+\definecolor{base3}{RGB}{253,246,227}
+
+\definecolor{yellow}{RGB}{181,137,0}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{titling}
+\usepackage{epstopdf}
+
+\usepackage{xspace}
+\newcommand{\SPRAY}[0]{\textsc{Spray}\xspace}
+\newcommand{\LSEQ}[0]{\textsc{LSeq}\xspace}
+\newcommand{\CRATE}[0]{\textsc{Crate}\xspace}
+
+\title{\CRATE: Writing Stories Together with our Browsers}
+\author{Brice Nédelec, Pascal Molli, Achour Mostefaoui}
+
+\begin{document}
+\begin{poster}{
+    grid=false,
+    bgColorOne=white,
+    bgColorTwo=white,
+    columns=3,
+    %%
+    headershape=roundedright, 
+    headerheight=0.18\textheight,
+    headerborder=open,
+    headerColorOne=base3,
+    headerColorTwo=base2,
+    borderColor=yellow,
+    eyecatcher=false,
+    %%    
+    textborder=rectangle,
+    boxColorOne=base2,
+    boxColorTwo=base2
+%    boxshade=plain
+  }
+  {}
+  {\huge\textsc{\thetitle}\vspace{0.2em}}
+  {\theauthor \\ \url{first.last@univ-nantes.fr}}
+  {\includegraphics[height=0.16\textheight, interpolate=false]{logos/crateicon.png}}
+
+  \headerbox{\textsc{Distributed Collaborative Editors}}
+  {name=context, column=0, span=2, row=0}
+  {
+  }
+
+\end{poster}
+
+
+\end{document}
+
