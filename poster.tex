@@ -1,4 +1,4 @@
-\documentclass[a1paper, portrait]{baposter}
+\documentclass[a1paper, fontscale=0.35, portrait]{baposter}
 
 \definecolor{base00}{RGB}{101,123,131}
 \definecolor{base2}{RGB}{238,232,213}
@@ -7,12 +7,15 @@
 \definecolor{yellow}{RGB}{181,137,0}
 \definecolor{red}{RGB}{220,50,47}
 \definecolor{magenta}{RGB}{211,54,130}
+\definecolor{blue}{RGB}{38,139,210}
+
 
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usepackage{url}
 \usepackage{titling}
 \usepackage{epstopdf}
+\usepackage{graphics}
 
 \usepackage{xspace}
 \newcommand{\SPRAY}[0]{\textsc{Spray}\xspace}
@@ -20,6 +23,7 @@
 \newcommand{\CRATE}[0]{\textsc{Crate}\xspace}
 
 \newcommand{\BOLD}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\BLUE}[1]{\textcolor{blue}{\textbf{#1}}}
 
 \title{\CRATE: Writing Stories Together with our Browsers}
 \author{Brice Nédelec, Pascal Molli, Achour Mostefaoui}
@@ -52,7 +56,7 @@
 
   \headerbox{\textsc{Distributed Collaborative Editors}}
   {name=context, column=0, span=3, row=0} {
-    Distribute the work across space, time, organization.\\
+    Distribute the work across space, time, and organizations.\\
     Improve the commitment of users, and the quality of documents.\\
     \\
     Centralized solutions: \\
@@ -75,34 +79,44 @@
 
   \headerbox{\textsc{Architecture}}
   {name=architecture, column=0, span=1, below=objective}{
-    \input{input/figurearchitecture.tex}
+    \begin{center}
+      \input{input/figurearchitecture.tex}
+    \end{center}
   }
   
   \headerbox{\textsc{Network of Browsers}}
   {name=network, column=1, span=1, below=objective}{
-    \input{input/livefigureB.tex}
+    \begin{center}
+      \input{input/livefigureB.tex}
+    \end{center}
   }
 
   \headerbox{\textsc{Distributed Structure}}
   {name=structure, column=2, span=1, below=objective}{
-    \input{input/desexample.tex}
+    \begin{center}
+      \input{input/desexample.tex}
+    \end{center}
   }
 
-  \headerbox{\textsc{Result}}
-  {name=result, column=0, span=1, below=architecture}{
-    \includegraphics[scale=0.4]{img/traffic.eps}
-  }
+  \headerbox{\textsc{Results}}
+  {name=result, column=0, span=2, below=architecture}{
+    \begin{minipage}[c]{.5\linewidth}
+      Some text
+    \end{minipage} \hfill
+    \begin{minipage}[c]{.5\linewidth}
+      \centering
+      \includegraphics[scale=0.5]{img/traffic.eps}
+    \end{minipage}
 
-  \headerbox{\textsc{Conclusion}}
-  {name=conclusion, column=1, span=1, below=architecture}{
   }
 
   \headerbox{\textsc{Session WWW}}
   {name=session, column=2, below=architecture} {
-    \centering
-    \includegraphics[scale=0.25]{img/qrcode.png}
-    or\\
-    \url{chat-wane.github.io/CRATE/?www}
+    \begin{center}
+      \includegraphics[scale=0.25]{img/qrcode.png}
+      \\or\\
+      \url{chat-wane.github.io/CRATE/?www}
+    \end{center}
   }
 
 \end{poster}

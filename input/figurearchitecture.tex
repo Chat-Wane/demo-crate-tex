@@ -1,46 +1,42 @@
-\begin{tikzpicture}[scale=0.9]
+\begin{tikzpicture}[scale=1]
 
-\newcommand\X{25pt}
+\newcommand\X{19pt}
 \newcommand\Y{20pt}
 
 \newcommand\LIGHTERGRAY{base3}
 \newcommand\LIGHTGRAY{base2}
 \newcommand\MEDIUMGRAY{yellow}
 
-\small
+\scriptsize
 %% communication
 \draw[rounded corners=2mm, color=\MEDIUMGRAY, fill=\LIGHTERGRAY](0pt, 0pt)+(-4*\X,-\Y)rectangle+(4*\X,\Y);
-\draw(4*\X, \Y)node[anchor=north east]{\textbf{communication}};
+
 
 \draw[fill=\LIGHTERGRAY](-2*\X, -0.25*\Y)
-node{broadcast}+(-0.75*\X,-0.5*\Y)rectangle+(0.75*\X,0.5*\Y);
-\draw[fill=\LIGHTERGRAY, very thick]( 0*\X, 0.25*\Y)
-node[align=center]{membership\\\SPRAY}+(-0.85*\X,-0.5*\Y)rectangle+(0.85*\X,0.5*\Y);
-%%\draw[fill=white]( 2*\X, -0.25*\Y)
-%% node{unicast}+(-0.75*\X,-0.5*\Y)rectangle+(0.75*\X,0.5*\Y);
+node{broadcast}+(-1*\X,-0.5*\Y)rectangle+(1*\X,0.5*\Y);
+\draw[fill=\LIGHTERGRAY, very thick]( 0.7*\X, 0.25*\Y)
+node[align=center]{membership\\\SPRAY}+(-1.2*\X,-0.5*\Y)rectangle+(1.2*\X,0.5*\Y);
 
-\draw[<-](-0.85*\X, 0.25*\Y)--(-1.25*\X, -0.25*\Y);
+\draw[<-](-0.5*\X, 0.25*\Y)--(-1*\X, -0.25*\Y);
 %% \draw[<-](0.85*\X, 0.25*\Y)--(1.25*\X, -0.25*\Y);
 
 %% causality
 \draw[rounded corners=2mm, color=\MEDIUMGRAY, fill=\LIGHTGRAY](0pt, -2*\Y)+(-4*\X,-\Y)rectangle+(4*\X,\Y);
-\draw(4*\X, -\Y)node[anchor=north east]{\textbf{causality}};
+
 
 \draw[fill=\LIGHTGRAY](-2*\X, -2*\Y)
 node[align=center]{version vector\\with\\exceptions}
-+(-1.0*\X,-0.6*\Y)rectangle+(1.0*\X,0.6*\Y);
-\scriptsize
-\draw[->, thick](-1.5*\X, -0.75*\Y) -- node[anchor=west]{receive}
++(-1.5*\X,-0.6*\Y)rectangle+(1.5*\X,0.6*\Y);
+\tiny
+\draw[->, thick, color=red](-1.5*\X, -0.75*\Y) -- node[anchor=west]{\ receive}
 (-1.5*\X, -1.4*\Y);
-\draw[<-, thick](-2.5*\X, -0.75*\Y) -- node[anchor=east]{send}
+\draw[<-, thick, color=blue](-2.5*\X, -0.75*\Y) -- node[anchor=east]{send \ }
 (-2.5*\X, -1.4*\Y);
-\small
+\scriptsize
 %% \draw[<->]( 2*\X, -0.75*\Y)--( 1*\X, -2.5*\Y);
 
 %% sequence structure
 \draw[rounded corners=2mm, color=\MEDIUMGRAY, fill=\LIGHTERGRAY](0pt, -4*\Y)+(-4*\X,-\Y)rectangle+(4*\X,\Y);
-\draw(4*\X, -3*\Y)node[anchor=north east, align=right]
-{\textbf{sequence}\\\textbf{structure}};
 
 %% \draw[fill=white, shading=axis,top color=\LIGHTGRAY, bottom color=white, shading angle=0](1*\X, -3*\Y)
 %% node{anti-entropy}+(-0.95*\X,-0.5*\Y) rectangle +(0.95 *\X, 0.5*\Y);
@@ -49,20 +45,28 @@ node{\LSEQ}+(-0.75*\X,-0.5*\Y) rectangle +(0.75 *\X, 0.5*\Y);
 
 %\draw[->] (0.05*\X, -2.75*\Y)--(-1*\X,-2*\Y);
 %\draw[->] (0.05*\X, -3.25*\Y)--(-1.25*\X,-4*\Y);
+\tiny
+\draw[<-, thick, color=red] (-1.5*\X, -3.5*\Y)--node[anchor=west]{\ deliver}(-1.5*\X, -2.6*\Y);
+\draw[->, thick, color=blue] (-2.5*\X, -3.5*\Y)--node[anchor=east]{decorate \ }(-2.5*\X, -2.6*\Y);
 \scriptsize
-\draw[<-, thick] (-1.5*\X, -3.5*\Y)--node[anchor=west]{deliver}(-1.5*\X, -2.6*\Y);
-\draw[->, thick] (-2.5*\X, -3.5*\Y)--node[anchor=east]{decorate}(-2.5*\X, -2.6*\Y);
-\small
 %% gui
 \draw[rounded corners=2mm, color=\MEDIUMGRAY, fill=\LIGHTGRAY](0pt, -6*\Y)+(-4*\X,-\Y)rectangle+(4*\X,\Y);
-\draw(4*\X, -5*\Y)node[anchor=north east, align=right]
-{\textbf{graphical}\\\textbf{user}\\\textbf{interface}};
-\draw[fill=\LIGHTGRAY](0pt,-6*\Y)
-node{web editor}+(-0.85*\X,-0.5*\Y) rectangle +(0.85 *\X, 0.5*\Y);
+
+\draw[fill=\LIGHTGRAY](0.7*\X,-6*\Y)
+node{web editor}+(-1*\X,-0.5*\Y) rectangle +(1*\X, 0.5*\Y);
 
 %%\draw[<->] (-2*\X, -4.5*\Y) -- (0*\X, -5.5*\Y);
+\tiny
+\draw[->, thick, color=red] (-1.80*\X, -4.5*\Y)--node[anchor=west]{\ notify}(-0.3*\X, -5.75*\Y);
+\draw[<-, thick, color=blue] (-2.30*\X, -4.5*\Y)--node[anchor=east]{update \ }(-0.3*\X, -6.25*\Y);
 \scriptsize
-\draw[->, thick] (-1.80*\X, -4.5*\Y)--node[anchor=west]{notify}(-0.85*\X, -5.75*\Y);
-\draw[<-, thick] (-2.20*\X, -4.5*\Y)--node[anchor=east]{update}(-0.85*\X, -6.25*\Y);
-\small
+
+\draw(4*\X, -\Y)node[anchor=south east]{\textbf{communication}};
+\draw(4*\X, -7*\Y)node[anchor=south east, align=right]
+{\textbf{graphical}\\\textbf{user}\\\textbf{interface}};
+\draw(4*\X, -5*\Y)node[anchor=south east, align=right]
+{\textbf{sequence}\\\textbf{structure}};
+\draw(4*\X, -3*\Y)node[anchor=south east]{\textbf{causality}};
+
+
 \end{tikzpicture}
