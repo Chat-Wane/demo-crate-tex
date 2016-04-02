@@ -1,9 +1,12 @@
 \documentclass[a1paper, portrait]{baposter}
 
+\definecolor{base00}{RGB}{101,123,131}
 \definecolor{base2}{RGB}{238,232,213}
 \definecolor{base3}{RGB}{253,246,227}
 
 \definecolor{yellow}{RGB}{181,137,0}
+\definecolor{red}{RGB}{220,50,47}
+\definecolor{magenta}{RGB}{211,54,130}
 
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
@@ -16,6 +19,8 @@
 \newcommand{\LSEQ}[0]{\textsc{LSeq}\xspace}
 \newcommand{\CRATE}[0]{\textsc{Crate}\xspace}
 
+\newcommand{\BOLD}[1]{\textcolor{red}{\textbf{#1}}}
+
 \title{\CRATE: Writing Stories Together with our Browsers}
 \author{Brice Nédelec, Pascal Molli, Achour Mostefaoui}
 
@@ -24,6 +29,7 @@
     grid=false,
     bgColorOne=white,
     bgColorTwo=white,
+    linewidth=1pt,
     columns=3,
     %%
     headershape=roundedright, 
@@ -36,17 +42,67 @@
     %%    
     textborder=rectangle,
     boxColorOne=base2,
-    boxColorTwo=base2
-%    boxshade=plain
+    boxColorTwo=base2,
+    textfont=\sffamily
   }
   {}
-  {\huge\textsc{\thetitle}\vspace{0.2em}}
+  {\huge\textsc{\thetitle}\vspace{0.4em}}
   {\theauthor \\ \url{first.last@univ-nantes.fr}}
   {\includegraphics[height=0.16\textheight, interpolate=false]{logos/crateicon.png}}
 
   \headerbox{\textsc{Distributed Collaborative Editors}}
-  {name=context, column=0, span=2, row=0}
-  {
+  {name=context, column=0, span=3, row=0} {
+    Distribute the work across space, time, organization.\\
+    Improve the commitment of users, and the quality of documents.\\
+    \\
+    Centralized solutions: \\
+    - Raise privacy issues, for the mediator of the editing session can
+      observe all users and documents; \\
+    - Scalability issues, for one server must handle the load of all users. \\
+    \\
+    Decentralized solutions: \\
+    - Settle privacy issues; \\
+    - But scalability issues remain.
+  }
+
+  
+  \headerbox{\textsc{Objective}}
+  {name=objective, column=0, span=3, below=context} {
+    Create a \BOLD{decentralized collaborative editor} that allows \BOLD{any number
+      of users} to write in \BOLD{real-time}, that is accessible directly within
+    \BOLD{web browsers}, that do \BOLD{not require third party}.
+  }
+
+  \headerbox{\textsc{Architecture}}
+  {name=architecture, column=0, span=1, below=objective}{
+    \input{input/figurearchitecture.tex}
+  }
+  
+  \headerbox{\textsc{Network of Browsers}}
+  {name=network, column=1, span=1, below=objective}{
+    \input{input/livefigureB.tex}
+  }
+
+  \headerbox{\textsc{Distributed Structure}}
+  {name=structure, column=2, span=1, below=objective}{
+    \input{input/desexample.tex}
+  }
+
+  \headerbox{\textsc{Result}}
+  {name=result, column=0, span=1, below=architecture}{
+    \includegraphics[scale=0.4]{img/traffic.eps}
+  }
+
+  \headerbox{\textsc{Conclusion}}
+  {name=conclusion, column=1, span=1, below=architecture}{
+  }
+
+  \headerbox{\textsc{Session WWW}}
+  {name=session, column=2, below=architecture} {
+    \centering
+    \includegraphics[scale=0.25]{img/qrcode.png}
+    or\\
+    \url{chat-wane.github.io/CRATE/?www}
   }
 
 \end{poster}
