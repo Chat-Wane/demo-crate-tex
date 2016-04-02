@@ -1,4 +1,4 @@
-\documentclass[a1paper, fontscale=0.35, portrait]{baposter}
+\documentclass[a1paper, fontscale=0.38, portrait]{baposter}
 
 \definecolor{base00}{RGB}{101,123,131}
 \definecolor{base2}{RGB}{238,232,213}
@@ -90,7 +90,7 @@
   }
 
   \headerbox{\textsc{Architecture}}
-  {name=architecture, column=0, span=1, below=objective}{
+  {name=architecture, column=0, span=1, below=objective, height=0.38}{
     \begin{center}
       \input{input/figurearchitecture.tex}
     \end{center}
@@ -99,8 +99,14 @@
   \headerbox{\textsc{Network of Browsers}}
   {name=network, column=1, span=1, below=objective}{
     \begin{center}
-      \input{input/livefigureB.tex}
+      \input{input/livefigureB.tex}      
     \end{center}
+    \footnotesize
+    A member of the editing session provides an access to the network using
+    a mediator. \\
+    A new member joins the network using this mediator. \\
+    The rest of the operation is handled within the network by the mean of
+    WebRTC channels.
   }
 
   \headerbox{\textsc{Distributed Structure}}
@@ -108,7 +114,10 @@
     \begin{center}
       \input{input/desexample.tex}
     \end{center}
-  }
+    \footnotesize
+    Each character is linked with a unique and immutable identifiers. A total
+    order among identifiers allow retrieving an identical document whatever the
+    order of reception.}
 
   \headerbox{\textsc{Results}}
   {name=result, column=0, span=2, below=architecture}{

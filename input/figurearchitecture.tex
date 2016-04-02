@@ -15,7 +15,7 @@
 \draw[fill=\LIGHTERGRAY](-2*\X, -0.25*\Y)
 node{broadcast}+(-1*\X,-0.5*\Y)rectangle+(1*\X,0.5*\Y);
 \draw[fill=\LIGHTERGRAY, very thick]( 0.7*\X, 0.25*\Y)
-node[align=center]{membership\\\SPRAY}+(-1.2*\X,-0.5*\Y)rectangle+(1.2*\X,0.5*\Y);
+node[align=center]{membership\\\SPRAY\footnote{Nédelec et al. (2015) Spray: an Adaptive Random Peer Sampling Protocol}}+(-1.2*\X,-0.5*\Y)rectangle+(1.2*\X,0.5*\Y);
 
 \draw[<-](-0.5*\X, 0.25*\Y)--(-1*\X, -0.25*\Y);
 %% \draw[<-](0.85*\X, 0.25*\Y)--(1.25*\X, -0.25*\Y);
@@ -25,7 +25,7 @@ node[align=center]{membership\\\SPRAY}+(-1.2*\X,-0.5*\Y)rectangle+(1.2*\X,0.5*\Y
 
 
 \draw[fill=\LIGHTGRAY](-2*\X, -2*\Y)
-node[align=center]{version vector\\with\\exceptions}
+node[align=center]{version vector\\with\\exceptions\footnote{Malkhi et al. (2007) Concise version vectors in WinFS}}
 +(-1.5*\X,-0.6*\Y)rectangle+(1.5*\X,0.6*\Y);
 \tiny
 \draw[->, thick, color=red](-1.5*\X, -0.75*\Y) -- node[anchor=west]{\ receive}
@@ -41,7 +41,7 @@ node[align=center]{version vector\\with\\exceptions}
 %% \draw[fill=white, shading=axis,top color=\LIGHTGRAY, bottom color=white, shading angle=0](1*\X, -3*\Y)
 %% node{anti-entropy}+(-0.95*\X,-0.5*\Y) rectangle +(0.95 *\X, 0.5*\Y);
 \draw[fill=\LIGHTERGRAY, very thick](-2*\X, -4*\Y)
-node{\LSEQ}+(-0.75*\X,-0.5*\Y) rectangle +(0.75 *\X, 0.5*\Y);
+node{\LSEQ\footnote{Nédelec et al. (2013) LSEQ: an Adaptive Structure for Sequences in Distributed Collaborative Editing}}+(-0.75*\X,-0.5*\Y) rectangle +(0.75 *\X, 0.5*\Y);
 
 %\draw[->] (0.05*\X, -2.75*\Y)--(-1*\X,-2*\Y);
 %\draw[->] (0.05*\X, -3.25*\Y)--(-1.25*\X,-4*\Y);
@@ -53,7 +53,7 @@ node{\LSEQ}+(-0.75*\X,-0.5*\Y) rectangle +(0.75 *\X, 0.5*\Y);
 \draw[rounded corners=2mm, color=\MEDIUMGRAY, fill=\LIGHTGRAY](0pt, -6*\Y)+(-4*\X,-\Y)rectangle+(4*\X,\Y);
 
 \draw[fill=\LIGHTGRAY](0.7*\X,-6*\Y)
-node{web editor}+(-1*\X,-0.5*\Y) rectangle +(1*\X, 0.5*\Y);
+node{web editor\footnote{\url{ace.c9.io}}}+(-1*\X,-0.5*\Y) rectangle +(1*\X, 0.5*\Y);
 
 %%\draw[<->] (-2*\X, -4.5*\Y) -- (0*\X, -5.5*\Y);
 \tiny
