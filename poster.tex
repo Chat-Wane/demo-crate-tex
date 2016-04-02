@@ -54,6 +54,18 @@
   {\theauthor \\ \url{first.last@univ-nantes.fr}}
   {\includegraphics[height=0.16\textheight, interpolate=false]{logos/crateicon.png}}
 
+  \headerbox{}%
+  {name=foottext, column=0, span=3, above=bottom,%
+    textborder=none,headerborder=none,boxheaderheight=0pt, boxColorOne=white,%
+    boxColorTwo=white}{
+    \begin{center}
+      \includegraphics[scale=0.07]{logos/CNRS.jpg} \hspace{2.75em}
+      \includegraphics[scale=0.2]{logos/LINA.eps} \hspace{2.75em}
+      \includegraphics[scale=0.2]{logos/UnivNantes.eps} \hspace{2.75em}
+      \includegraphics[scale=0.2]{logos/socioplug.png}
+    \end{center}
+  }
+
   \headerbox{\textsc{Distributed Collaborative Editors}}
   {name=context, column=0, span=3, row=0} {
     Distribute the work across space, time, and organizations.\\
@@ -101,7 +113,8 @@
   \headerbox{\textsc{Results}}
   {name=result, column=0, span=2, below=architecture}{
     \begin{minipage}[c]{.5\linewidth}
-      Some text
+      Some text \\
+      Compared to trending editors such as Google Docs or Etherpad:      
     \end{minipage} \hfill
     \begin{minipage}[c]{.5\linewidth}
       \centering
