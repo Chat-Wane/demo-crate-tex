@@ -28,8 +28,9 @@
 \title{\CRATE: Writing Stories Together\vspace{0.4em} \\ with our Browsers}
 \author{Brice Nédelec, Pascal Molli, Achour Mostefaoui}
 
-\newcommand{\FIRSTCOL}{0.222}
-\newcommand{\SECONDCOL}{0.38}
+\newcommand{\FIRSTROW}{0.222}
+\newcommand{\SECONDROW}{0.385}
+\newcommand{\THIRDROW}{0.285}
 
 \begin{document}
 \begin{poster}{
@@ -70,7 +71,7 @@
   }
 
   \headerbox{\textsc{Distributed Collaborative Editors}}
-  {name=context, column=0, span=2, row=0, height=\FIRSTCOL} {
+  {name=context, column=0, span=2, row=0, height=\FIRSTROW} {
     Distribute the work across space, time, and organizations.\\
     Improve the commitment of users, and the quality of documents.\\
     \\
@@ -86,21 +87,21 @@
 
   
   \headerbox{\textsc{Objective}}
-  {name=objective, column=2, span=1, height=\FIRSTCOL} {%, below=context} {
+  {name=objective, column=2, span=1, height=\FIRSTROW} {%, below=context} {
     Create a \RED{decentralized collaborative editor} that allows \RED{any number
       of users} to write in \RED{real-time}, that is accessible directly within
     \RED{web browsers}, that do \RED{not require third party}.
   }
 
-  \headerbox{\textsc{Architecture}}
-  {name=architecture, column=0, span=1, below=objective, height=\SECONDCOL}{
+  \headerbox{\textsc{Crate's Architecture}}
+  {name=architecture, column=0, span=1, below=objective, height=\SECONDROW}{
     \begin{center}
       \input{input/figurearchitecture.tex}
     \end{center}
   }
   
   \headerbox{\textsc{Network of Browsers}}
-  {name=network, column=1, span=1, below=objective, height=\SECONDCOL}{
+  {name=network, column=1, span=1, below=objective, height=\SECONDROW}{
     \begin{center}
       \input{input/livefigureB.tex}      
     \end{center}
@@ -117,7 +118,7 @@
   }
 
   \headerbox{\textsc{Distributed Structure}}
-  {name=structure, column=2, span=1, below=objective, height=\SECONDCOL}{
+  {name=structure, column=2, span=1, below=objective, height=\SECONDROW}{
     \begin{center}
       \input{input/desexample.tex}
     \end{center}
@@ -132,20 +133,31 @@
 }
 
   \headerbox{\textsc{Results}}
-  {name=result, column=0, span=2, below=architecture}{
+  {name=result, column=0, span=2, below=architecture, height=\THIRDROW}{
     \begin{minipage}[c]{.5\linewidth}
-      Some text \\
-      Compared to trending editors such as Google Docs or Etherpad:      
+      Generated traffic scales well in terms of document size and number of
+      participants.\\
+                  
+      Compared to trending editors such as Google Docs or Etherpad:\\
+      - The documents are visible only by members of the editing session.\\
+      - While it was normal to pay more to remember, it is now more difficult to
+      forget. With our editor, documents that are not interesting disappear,
+      unless a user says otherwise.\\
+      - No single point of failure. \\
+     
     \end{minipage} \hfill
     \begin{minipage}[c]{.5\linewidth}
       \centering
       \includegraphics[scale=0.5]{img/traffic.eps}
     \end{minipage}
 
+    Ideas: (i) Allow real-time editing sessions in Wikipedia during peak of
+    changes due to a particular event. (ii) Integrate it to MOOC for taking
+    notes (iii) yours?
   }
 
   \headerbox{\textsc{Editing Session WWW}}
-  {name=session, column=2, below=architecture} {
+  {name=session, column=2, below=architecture, height=\THIRDROW} {
     \begin{center}
       \includegraphics[scale=0.25]{img/qrcode.png}
       \\or\\
