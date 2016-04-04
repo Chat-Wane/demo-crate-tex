@@ -22,11 +22,14 @@
 \newcommand{\LSEQ}[0]{\textsc{LSeq}\xspace}
 \newcommand{\CRATE}[0]{\textsc{Crate}\xspace}
 
-\newcommand{\BOLD}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\RED}[1]{\textcolor{red}{\textbf{#1}}}
 \newcommand{\BLUE}[1]{\textcolor{blue}{\textbf{#1}}}
 
 \title{\CRATE: Writing Stories Together\vspace{0.4em} \\ with our Browsers}
 \author{Brice Nédelec, Pascal Molli, Achour Mostefaoui}
+
+\newcommand{\FIRSTCOL}{0.222}
+\newcommand{\SECONDCOL}{0.38}
 
 \begin{document}
 \begin{poster}{
@@ -67,7 +70,7 @@
   }
 
   \headerbox{\textsc{Distributed Collaborative Editors}}
-  {name=context, column=0, span=3, row=0} {
+  {name=context, column=0, span=2, row=0, height=\FIRSTCOL} {
     Distribute the work across space, time, and organizations.\\
     Improve the commitment of users, and the quality of documents.\\
     \\
@@ -83,41 +86,50 @@
 
   
   \headerbox{\textsc{Objective}}
-  {name=objective, column=0, span=3, below=context} {
-    Create a \BOLD{decentralized collaborative editor} that allows \BOLD{any number
-      of users} to write in \BOLD{real-time}, that is accessible directly within
-    \BOLD{web browsers}, that do \BOLD{not require third party}.
+  {name=objective, column=2, span=1, height=\FIRSTCOL} {%, below=context} {
+    Create a \RED{decentralized collaborative editor} that allows \RED{any number
+      of users} to write in \RED{real-time}, that is accessible directly within
+    \RED{web browsers}, that do \RED{not require third party}.
   }
 
   \headerbox{\textsc{Architecture}}
-  {name=architecture, column=0, span=1, below=objective, height=0.38}{
+  {name=architecture, column=0, span=1, below=objective, height=\SECONDCOL}{
     \begin{center}
       \input{input/figurearchitecture.tex}
     \end{center}
   }
   
   \headerbox{\textsc{Network of Browsers}}
-  {name=network, column=1, span=1, below=objective}{
+  {name=network, column=1, span=1, below=objective, height=\SECONDCOL}{
     \begin{center}
       \input{input/livefigureB.tex}      
     \end{center}
-    \footnotesize
-    A member of the editing session provides an access to the network using
+%    \footnotesize
+    A member of the editing session \RED{provides an access} to the network using
     a mediator. \\
-    A new member joins the network using this mediator. \\
+    A new member \BLUE{joins the network} using this mediator. \\
     The rest of the operation is handled within the network by the mean of
-    WebRTC channels.
+    WebRTC communication channels. The members become mediators themselves.\\
+    \\
+    A random peer sampling protocol that auto-adjusts the number of connections
+    builds the network overlay.
+
   }
 
   \headerbox{\textsc{Distributed Structure}}
-  {name=structure, column=2, span=1, below=objective}{
+  {name=structure, column=2, span=1, below=objective, height=\SECONDCOL}{
     \begin{center}
       \input{input/desexample.tex}
     \end{center}
-    \footnotesize
+%    \footnotesize
+    Each member owns a replica of the document.\\
     Each character is linked with a unique and immutable identifiers. A total
     order among identifiers allow retrieving an identical document whatever the
-    order of reception.}
+    order of reception.\\
+    Each identifier comprises a \RED{path} and a \BLUE{disambiguator}. \\
+    The growth of paths is sublineraly upper-bounded by the number of insertions in
+    the document.   
+}
 
   \headerbox{\textsc{Results}}
   {name=result, column=0, span=2, below=architecture}{
@@ -132,7 +144,7 @@
 
   }
 
-  \headerbox{\textsc{Session WWW}}
+  \headerbox{\textsc{Editing Session WWW}}
   {name=session, column=2, below=architecture} {
     \begin{center}
       \includegraphics[scale=0.25]{img/qrcode.png}
