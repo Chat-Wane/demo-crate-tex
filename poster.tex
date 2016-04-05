@@ -1,4 +1,4 @@
-\documentclass[a1paper, fontscale=0.38, portrait]{baposter}
+\documentclass[a1paper, fontscale=0.4, portrait]{baposter}
 
 \definecolor{base00}{RGB}{101,123,131}
 \definecolor{base2}{RGB}{238,232,213}
@@ -28,9 +28,15 @@
 \title{\CRATE: Writing Stories Together\vspace{0.4em} \\ with our Browsers}
 \author{Brice Nédelec, Pascal Molli, Achour Mostefaoui}
 
-\newcommand{\FIRSTROW}{0.222}
-\newcommand{\SECONDROW}{0.385}
-\newcommand{\THIRDROW}{0.285}
+%% 0.38
+%\newcommand{\FIRSTROW}{0.222}
+%\newcommand{\SECONDROW}{0.385}
+%\newcommand{\THIRDROW}{0.285}
+
+\newcommand{\FIRSTROW}{0.189}
+\newcommand{\SECONDROW}{0.343}
+\newcommand{\THIRDROW}{0.260}
+
 
 \begin{document}
 \begin{poster}{
@@ -38,10 +44,10 @@
     bgColorOne=white,
     bgColorTwo=white,
     linewidth=1pt,
-    columns=3,
+    columns=6,
     %%
     headershape=roundedright, 
-    headerheight=0.18\textheight,
+    headerheight=0.14\textheight,
     headerborder=open,
     headerColorOne=base3,
     headerColorTwo=base2,
@@ -56,10 +62,10 @@
   {}
   {\huge\textsc{\thetitle}\vspace{0.6em}}
   {\theauthor \\ \url{first.last@univ-nantes.fr}}
-  {\includegraphics[height=0.16\textheight, interpolate=false]{logos/crateicon.png}}
+  {\includegraphics[height=0.12\textheight, interpolate=false]{logos/crateicon.png}}
 
   \headerbox{}%
-  {name=foottext, column=0, span=3, above=bottom,%
+  {name=foottext, column=0, span=6, above=bottom,%
     textborder=none,headerborder=none,boxheaderheight=0pt, boxColorOne=white,%
     boxColorTwo=white}{
     \begin{center}
@@ -71,37 +77,48 @@
   }
 
   \headerbox{\textsc{Distributed Collaborative Editors}}
-  {name=context, column=0, span=2, row=0, height=\FIRSTROW} {
+  {name=context, column=0, span=3, row=0, height=\FIRSTROW} {
     Distribute the work across space, time, and organizations.\\
     Improve the commitment of users, and the quality of documents.\\
     \\
-    Centralized solutions: \\
+    \RED{Centralized} solutions: \\
     - Raise privacy issues, for the mediator of the editing session can
       observe all users and documents; \\
     - Scalability issues, for one server must handle the load of all users. \\
-    \\
-    Decentralized solutions: \\
+    \RED{Decentralized} solutions: \\
     - Settle privacy issues; \\
     - But scalability issues remain.
   }
 
   
   \headerbox{\textsc{Objective}}
-  {name=objective, column=2, span=1, height=\FIRSTROW} {%, below=context} {
+  {name=objective, column=0, span=3, below=context}{ %height=\FIRSTROW} {%, below=context} {
     Create a \RED{decentralized collaborative editor} that allows \RED{any number
       of users} to write in \RED{real-time}, that is accessible directly within
     \RED{web browsers}, that do \RED{not require third party}.
   }
 
+  \headerbox{\textsc{Crate}}
+  {name=crate, column=3, span=3, height=0.2815}{ %below=objective}{ %% height=\FIRSTROW}{    
+    \includegraphics[width=\textwidth]{img/crate.png}\\
+    Two members of an editing session. On the left, it edits a readme file. On the right,
+    it renders it using the markdown language.\\
+
+%%    The earth globe shows the connection status.\\
+    The user on the left shares the access of its document.
+    The editor crafts an address that grants access to whoever clicks on
+    it -- as long as a sharer exists. 
+  }
+
   \headerbox{\textsc{Crate's Architecture}}
-  {name=architecture, column=0, span=1, below=objective, height=\SECONDROW}{
+  {name=architecture, column=0, span=2, below=objective, height=\SECONDROW}{
     \begin{center}
       \input{input/figurearchitecture.tex}
     \end{center}
   }
   
   \headerbox{\textsc{Network of Browsers}}
-  {name=network, column=1, span=1, below=objective, height=\SECONDROW}{
+  {name=network, column=2, span=2, below=objective, height=\SECONDROW}{
     \begin{center}
       \input{input/livefigureB.tex}      
     \end{center}
@@ -118,7 +135,7 @@
   }
 
   \headerbox{\textsc{Distributed Structure}}
-  {name=structure, column=2, span=1, below=objective, height=\SECONDROW}{
+  {name=structure, column=4, span=2, below=objective, height=\SECONDROW}{
     \begin{center}
       \input{input/desexample.tex}
     \end{center}
@@ -133,15 +150,16 @@
 }
 
   \headerbox{\textsc{Results}}
-  {name=result, column=0, span=2, below=architecture, height=\THIRDROW}{
+  {name=result, column=0, span=4, below=architecture, height=\THIRDROW}{
     \begin{minipage}[c]{.5\linewidth}
       Generated traffic scales well in terms of document size and number of
       participants.\\
                   
       Compared to trending editors such as Google Docs or Etherpad:\\
       - The documents are visible only by members of the editing session.\\
-      - While it was normal to pay more to remember, it is now more difficult to
-      forget. With our editor, documents that are not interesting disappear,
+      - While it was normal to pay more to remember, nowadays it is more
+      difficult to forget. With our editor, documents that are not interesting
+      disappear,
       unless a user says otherwise.\\
       - No single point of failure. \\
      
@@ -157,7 +175,7 @@
   }
 
   \headerbox{\textsc{Editing Session WWW}}
-  {name=session, column=2, below=architecture, height=\THIRDROW} {
+  {name=session, column=4, span=2, below=architecture, height=\THIRDROW} {
     \begin{center}
       \includegraphics[scale=0.25]{img/qrcode.png}
       \\or\\
