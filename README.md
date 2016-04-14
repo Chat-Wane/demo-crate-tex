@@ -26,6 +26,7 @@ usage.
 ## Available at (TODO)
 
 <ul>
+  <li>[proceedings](http://www2016.net/proceedings/companion/p231.pdf)</li>
   <li>[HAL]</li>
 </ul>
 
