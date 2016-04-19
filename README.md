@@ -23,14 +23,35 @@ the editor from oversizing routing tables, hence from letting small networks pay
 the price of large networks.  This paper describes CRATE, its properties and its
 usage.
 
-## Available at (TODO)
+## Available at
 
 <ul>
   <li>[proceedings](http://www2016.net/proceedings/companion/p231.pdf)</li>
-  <li>[HAL]</li>
+  <li>[ACM](http://dl.acm.org/citation.cfm?id=2890539)</li>
 </ul>
 
-## BibTeX (TODO)
+## BibTeX
+
+```
+@inproceedings{nedelec2016crate,
+  author = {N{\'e}delec, Brice and Molli, Pascal and Mostefaoui, Achour},
+  title = {CRATE: Writing Stories Together with Our Browsers},  
+  booktitle = {Proceedings of the 25th International Conference Companion on
+  World Wide Web},
+  series = {WWW '16 Companion},
+  year = {2016},
+  isbn = {978-1-4503-4144-8},
+  location = {Montr{\'e}al, Qu{\'e}bec, Canada},
+  pages = {231--234},
+  numpages = {4},
+  url = {http://dx.doi.org/10.1145/2872518.2890539},
+  doi = {10.1145/2872518.2890539},
+  acmid = {2890539},
+  publisher = {International World Wide Web Conferences Steering Committee},
+  address = {Republic and Canton of Geneva, Switzerland},
+  keywords = {collaborative editor, decentralized, real-time},
+} 
+```
 
 ## Acknowledgments
 
