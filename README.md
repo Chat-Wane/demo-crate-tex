@@ -28,6 +28,7 @@ usage.
 <ul>
   <li>[proceedings](http://www2016.net/proceedings/companion/p231.pdf)</li>
   <li>[ACM](http://dl.acm.org/citation.cfm?id=2890539)</li>
+  <li>[HAL](https://hal.archives-ouvertes.fr/hal-01303333)</li>
 </ul>
 
 ## BibTeX
